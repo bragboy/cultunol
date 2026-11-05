@@ -38,7 +38,7 @@
   --radius-lg: 40px;
   --wrap: 1180px;
   --gutter: clamp(16px, 4vw, 40px);
-  --inset: clamp(8px, 1.6vw, 24px);
+  --inset: clamp(16px, 1.6vw, 24px);
   --ease: cubic-bezier(.2, .7, .1, 1);
   --shadow: 0 1px 2px rgba(36, 25, 15, .05), 0 12px 40px -12px rgba(80, 45, 15, .22);
   --shadow-lg: 0 2px 6px rgba(36, 25, 15, .06), 0 40px 80px -30px rgba(80, 45, 15, .4);
