@@ -302,8 +302,13 @@ em, .serif { font-family: "Fraunces", Georgia, serif; font-style: italic; font-w
 .flip-face { position: absolute; inset: 0; transition: opacity .7s var(--ease), transform 1.2s var(--ease), filter .7s; }
 .flip-face img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
 .flip-dog { opacity: 0; transform: scale(1.12); filter: blur(6px); }
-.flip:hover .flip-photo, .flip[aria-pressed="true"] .flip-photo { opacity: 0; transform: scale(.94); filter: blur(6px); }
-.flip:hover .flip-dog, .flip[aria-pressed="true"] .flip-dog { opacity: 1; transform: none; filter: none; }
+/* One rule: hover (or keyboard focus) on desktop, tap to toggle on touch. Clicking with a mouse never locks it. */
+.flip[aria-pressed="true"] .flip-photo, .flip:focus-visible .flip-photo { opacity: 0; transform: scale(.94); filter: blur(6px); }
+.flip[aria-pressed="true"] .flip-dog, .flip:focus-visible .flip-dog { opacity: 1; transform: none; filter: none; }
+@media (hover: hover) and (pointer: fine) {
+  .flip:hover .flip-photo { opacity: 0; transform: scale(.94); filter: blur(6px); }
+  .flip:hover .flip-dog { opacity: 1; transform: none; filter: none; }
+}
 .flip-hint { position: absolute; right: 16px; bottom: 16px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: rgba(255, 252, 246, .9); color: var(--madrid); box-shadow: var(--shadow); animation: wiggle 3.2s ease-in-out infinite; }
 .flip-hint .icon { width: 22px; height: 22px; }
 @keyframes wiggle { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-16deg); } 84% { transform: rotate(14deg); } 92% { transform: rotate(-6deg); } }
@@ -803,12 +808,6 @@ details.training li .icon { color: var(--leaf); width: 20px; height: 20px; margi
 @keyframes stamp { to { opacity: 1; transform: scale(.94) rotate(-14deg); } }
 @keyframes stamp-settle { from { opacity: 1; transform: scale(.94) rotate(-14deg); } to { opacity: 1; transform: scale(1) rotate(-14deg); } }
 @keyframes thud { 0%, 100% { transform: none; } 30% { transform: translateY(5px) scale(.985); } }
-
-/* 5. Portraits peek at their dog version once */
-.flip.peek .flip-photo { animation: peek-out 2.6s var(--ease); }
-.flip.peek .flip-dog { animation: peek-in 2.6s var(--ease); }
-@keyframes peek-out { 0%, 100% { opacity: 1; transform: none; filter: none; } 25%, 70% { opacity: 0; transform: scale(.94); filter: blur(6px); } }
-@keyframes peek-in { 0%, 100% { opacity: 0; transform: scale(1.12); filter: blur(6px); } 25%, 70% { opacity: 1; transform: none; filter: none; } }
 
 /* 6. Ribbon nodes pulse as the travelling light passes */
 .ribbon.is-in .ribbon-badge { animation: node-pulse 7s linear 2.4s infinite; }

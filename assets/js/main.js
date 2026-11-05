@@ -114,25 +114,15 @@
   }
 
   // Photo to dog portrait toggle (tap on touch, hover on desktop).
+  // Touch: tap toggles. Mouse: hover only (CSS), so a click never changes the state.
   document.querySelectorAll('[data-flip]').forEach(btn => {
-    btn.addEventListener('click', () => btn.setAttribute('aria-pressed', String(btn.getAttribute('aria-pressed') !== 'true')));
+    let pointer = 'mouse';
+    btn.addEventListener('pointerdown', e => { pointer = e.pointerType; });
+    btn.addEventListener('click', e => {
+      if (pointer !== 'touch' && pointer !== 'pen') return;
+      btn.setAttribute('aria-pressed', String(btn.getAttribute('aria-pressed') !== 'true'));
+    });
   });
-
-  // Portraits peek at their dog version once, the first time the team comes into view.
-  const peek = document.querySelector('[data-peek]');
-  if (peek && 'IntersectionObserver' in window && !reduce.matches) {
-    const po = new IntersectionObserver(entries => {
-      if (!entries[0].isIntersecting) return;
-      po.disconnect();
-      peek.querySelectorAll('[data-flip]').forEach((flip, i) => {
-        setTimeout(() => {
-          flip.classList.add('peek');
-          flip.addEventListener('animationend', () => flip.classList.remove('peek'), { once: true });
-        }, 900 + i * 450);
-      });
-    }, { threshold: 0.55 });
-    po.observe(peek);
-  }
 
   // "Coming soon" dialog.
   const soon = document.getElementById('soon');

@@ -97,7 +97,7 @@
     <p>{{ $p.team.text }}</p>
     <a class="link-more" href="{{ "equipo" | relLangURL }}">{{ $p.team.cta }} ›</a>
   </header>
-  <div class="team-grid" data-peek>
+  <div class="team-grid">
     {{ range $p.team.people }}
     <article class="person" data-reveal>
       <button class="flip" type="button" aria-pressed="false" data-flip aria-label="{{ T "photo_toggle" }}: {{ .name }}">
