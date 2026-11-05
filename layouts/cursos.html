@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ $p.kicker }}</p>
+        <h1>{{ $p.hero_title }}</h1>
+        <p class="lede">{{ $p.hero_text }}</p>
+        <div class="hero-actions"><a class="btn btn-orange" href="{{ "contactar" | relLangURL }}">{{ $p.hero_cta }} {{ partial "icon.html" "arrow" }}</a></div>
+      </div>
+      <div class="frame frame-square alive">{{ partial "img.html" (dict "src" "card-grupales.png" "alt" $p.hero_alt "eager" true "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+    </div>
+  </div>
+</section>
+<section class="section wrap">
+  {{ range $p.groups }}
+  <div class="group">
+    <header class="group-title" data-reveal><h2>{{ .title }}</h2><span>{{ .sub }}</span></header>
+    <div class="cards">
+      {{ range $i, $c := .items }}{{ partial "card.html" (dict "title" $c.title "img" $c.img "alt" $c.alt "href" $c.href "soon" $c.soon "tag" (cond (default false $c.soon) (T "soon") (T "learn_more")) "alive" (add (mod $i 3) 1)) }}{{ end }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

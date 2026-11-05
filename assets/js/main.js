@@ -125,3 +125,29 @@
   });
   if (soon) soon.addEventListener('click', e => { if (e.target === soon) soon.close(); });
 })();
+
+// Subscribe form: localised country names, light validation, pending notice until it is wired up.
+(() => {
+  const select = document.querySelector('[data-countries]');
+  if (select && window.Intl && Intl.DisplayNames) {
+    try {
+      const names = new Intl.DisplayNames([select.dataset.locale || 'es'], { type: 'region' });
+      const collator = new Intl.Collator(select.dataset.locale || 'es');
+      const opts = [...select.options];
+      opts.forEach(o => { o.textContent = names.of(o.value) || o.value; });
+      opts.sort((a, b) => collator.compare(a.textContent, b.textContent)).forEach(o => select.appendChild(o));
+    } catch (e) { /* keep ISO codes */ }
+  }
+  const form = document.querySelector('[data-subscribe]');
+  if (!form) return;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(input => {
+      const bad = !input.value.trim() || (input.type === 'email' && !input.checkValidity());
+      input.setAttribute('aria-invalid', String(bad));
+      if (bad && ok) { input.focus(); ok = false; }
+    });
+    if (ok) form.querySelector('[data-subscribe-note]').hidden = false;
+  });
+})();

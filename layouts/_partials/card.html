@@ -1,0 +1,7 @@
+{{- /* Course card. dict: title, img, alt, href (internal path) or soon (bool), tag, alive (1..3) */ -}}
+{{- $inner := printf `<div class="frame frame-tall alive alive-%v">%s</div><div class="card-body"><div><h3>%s</h3>%s</div><span class="card-go">%s</span></div>` (.alive | default 1) (partial "img.html" (dict "src" .img "alt" (.alt | default "") "sizes" "(min-width: 900px) 360px, 82vw")) .title (cond (isset . "tag") (printf `<span class="card-tag %s">%s</span>` (cond (.soon | default false) "tag-soon" "tag-open") .tag) "") (partial "icon.html" (cond (.soon | default false) "plane" "arrow")) -}}
+{{- if .soon -}}
+<button class="card" type="button" data-soon data-reveal aria-haspopup="dialog">{{ $inner | safeHTML }}</button>
+{{- else -}}
+<a class="card" href="{{ strings.TrimPrefix "/" .href | relLangURL }}" data-reveal>{{ $inner | safeHTML }}</a>
+{{- end -}}

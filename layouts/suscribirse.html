@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night sub-panel">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="sub-intro">
+      <div class="sub-puppy">{{ partial "img.html" (dict "src" "puppy.png" "alt" $p.puppy_alt "eager" true "sizes" "260px") }}</div>
+      <p class="eyebrow">Cultuñol · Newsletter</p>
+      <h1>{{ $p.hero_title }}</h1>
+      <p class="lede">{{ $p.hero_text }}</p>
+      <ul class="chips">{{ range $p.chips }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>
+    </div>
+    <form class="sub-card" data-subscribe novalidate>
+      <div class="sub-card-head">
+        <img class="sub-avatar" src="{{ ((resources.Get "images/logo-face.png").Resize "144x webp").RelPermalink }}" width="72" height="72" alt="">
+        <div><h2>{{ $p.form_title }}</h2><p>{{ $p.form_sub }}</p></div>
+      </div>
+      <label class="field"><span>{{ $p.name }} <b aria-hidden="true">*</b></span><input type="text" name="first_name" autocomplete="given-name" required></label>
+      <label class="field"><span>{{ $p.country }}</span>
+        <span class="select"><select name="country" autocomplete="country" data-countries data-locale="{{ site.Language.Lang }}">{{ range hugo.Data.countries.codes }}<option value="{{ . }}"{{ if eq . "ES" }} selected{{ end }}>{{ . }}</option>{{ end }}</select></span>
+      </label>
+      <label class="field"><span>{{ $p.email }} <b aria-hidden="true">*</b></span><input type="email" name="email" autocomplete="email" required></label>
+      <button class="btn btn-orange sub-btn" type="submit">{{ $p.submit }} {{ partial "icon.html" "arrow" }}</button>
+      <p class="sub-note" data-subscribe-note hidden role="status">{{ $p.pending | safeHTML }}</p>
+      <p class="sub-legal">{{ $p.legal }} <a href="{{ "legal-page" | relLangURL }}">{{ T "privacy" }}</a></p>
+    </form>
+  </div>
+</section>
+{{ end }}

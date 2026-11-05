@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-leaf">
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ $p.kicker }}</p>
+        <h1>{{ $p.hero_title }}</h1>
+        <p class="lede">{{ $p.hero_text }}</p>
+      </div>
+      <div class="frame frame-square alive">{{ partial "img.html" (dict "src" "lectura.png" "alt" "" "eager" true "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+    </div>
+  </div>
+</section>
+<section class="section wrap">
+  <div class="cards cards-2">
+    {{ range $i, $c := $p.items }}{{ partial "card.html" (dict "title" $c.title "img" $c.img "alt" $c.alt "href" $c.href "tag" $c.tag "alive" (add $i 1)) }}{{ end }}
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

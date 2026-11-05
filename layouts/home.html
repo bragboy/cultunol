@@ -10,7 +10,7 @@
       <p class="hero-text">{{ $p.hero.text }}</p>
       <div class="hero-actions">
         <a class="btn btn-orange" href="{{ "cursos" | relLangURL }}">{{ $p.hero.cta }} {{ partial "icon.html" "arrow" }}</a>
-        <a class="btn btn-glass" href="{{ site.Params.subscribe }}">{{ T "newsletter_btn" }}</a>
+        <a class="btn btn-glass" href="{{ site.Params.subscribe | relLangURL }}">{{ T "newsletter_btn" }}</a>
       </div>
     </div>
     <figure class="hero-dog" aria-hidden="true">
@@ -45,7 +45,7 @@
   </header>
   <div class="course-grid">
     {{ range $i, $c := $p.courses }}
-    <a class="course-card{{ if $c.star }} course-star{{ end }}" href="{{ $c.href | relLangURL }}" data-reveal data-tilt>
+    <a class="course-card{{ if $c.star }} course-star{{ end }}" href="{{ strings.TrimPrefix "/" $c.href | relLangURL }}" data-reveal data-tilt>
       {{ if $c.star }}
         <span class="course-star-badge">{{ partial "icon.html" "star" }}</span>
         <h3>{{ $c.title }}</h3>
@@ -77,7 +77,7 @@
       <p>{{ $p.news.p1 | markdownify }}</p>
       <p>{{ $p.news.p2 | markdownify }}</p>
       <ul class="chips">{{ range $p.news.list }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>
-      <a class="btn btn-cream" href="{{ site.Params.subscribe }}">{{ $p.news.cta }} {{ partial "icon.html" "arrow" }}</a>
+      <a class="btn btn-cream" href="{{ site.Params.subscribe | relLangURL }}">{{ $p.news.cta }} {{ partial "icon.html" "arrow" }}</a>
     </div>
     <figure class="news-art" data-reveal>
       {{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.news.alt "sizes" "(min-width: 900px) 440px, 80vw") }}

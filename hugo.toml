@@ -6,7 +6,7 @@ defaultContentLanguage = "es"
 defaultContentLanguageInSubdir = false
 
 [params]
-  subscribe = "https://www.cultunol.com/suscribirse"
+  subscribe = "suscribirse"
   whatsapp = "https://wa.me/34680983874"
   email = "info@cultunol.com"
   mailto = "mailto:info@monicafiestas.com"

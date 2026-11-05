@@ -3,6 +3,6 @@
   <div class="modal-art" aria-hidden="true">{{ partial "icon.html" "paw" }}</div>
   <h3 id="soon-title">{{ T "soon_title" }}</h3>
   <p>{{ T "soon_text" }}</p>
-  <a class="btn btn-orange" href="{{ site.Params.subscribe }}">{{ T "soon_subscribe" }}</a>
+  <a class="btn btn-orange" href="{{ site.Params.subscribe | relLangURL }}">{{ T "soon_subscribe" }}</a>
   <p class="modal-small">{{ T "soon_or" | safeHTML }}</p>
 </dialog>
