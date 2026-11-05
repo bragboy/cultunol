@@ -39,7 +39,9 @@
   </div>
 </section>
 
-<section class="courses wrap">
+<section class="courses">
+  <div class="panel panel-leaf courses-band">
+  <div class="wrap">
   <header class="section-head" data-reveal>
     <p class="eyebrow">{{ $p.courses_kicker }}</p>
     <h2>{{ $p.courses_title }}</h2>
@@ -61,6 +63,8 @@
     </a>
     {{ end }}
   </div>
+  </div>
+  </div>
 </section>
 
 <div class="marquee" aria-hidden="true">
@@ -70,7 +74,7 @@
 </div>
 
 <section class="news-tile">
-  <div class="panel panel-leaf news-panel">
+  <div class="panel panel-denim news-panel">
     <div class="news-copy" data-reveal>
       <p class="eyebrow">{{ $p.news.kicker }}</p>
       <h2>{{ $p.news.title }}</h2>

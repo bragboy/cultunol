@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ if .IsHome }}{{ T "home_title" }}{{ else }}{{ .Title }} · Cultuñol{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
-  <meta name="theme-color" content="#fbf5ea">
+  <meta name="theme-color" content="#587499">
   {{- $og := (resources.Get "images/hero-board.png").Fill "1200x630 Center webp" }}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ if .IsHome }}{{ T "home_title" }}{{ else }}{{ .Title }} · Cultuñol{{ end }}">

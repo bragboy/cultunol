@@ -33,7 +33,8 @@ Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /v
 
 ## Design
 
-- Palette from her illustrations: caramel dog fur, MADRID orange, Ana's green, denim blue, parchment cream, night panels (`:root` tokens in `assets/css/main.css`).
+- Brand colours (from cultunol.com, Mónica asked for them to be clear): orange #DA984D, blue #587499, green #58995C. Story panels and footer are her blue, the home courses band is green, the newsletter band blue, accents orange. Cream background and dog-illustration tones support them.
+- One inset (`--inset`) and radius for every full-width tile so edges line up on phones.
 - Dark rounded story panels with a glowing ribbon linking numbered nodes (`ribbon.html` partial), scroll-zoom of the board illustration, words that light up on scroll, slow "breathing" illustrations (`.alive`), photo-to-dog portrait flips, swipe rails on phones.
 - All art sits in fixed-ratio frames anchored to the top (`.frame`) so crops are consistent.
 - No inline scripts or style attributes; JS in `assets/js/main.js`. Respect `prefers-reduced-motion`.
