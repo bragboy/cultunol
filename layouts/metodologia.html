@@ -1,0 +1,52 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <p class="eyebrow">{{ $p.kicker }}</p>
+    <h1>{{ $p.hero_title | markdownify }}</h1>
+    <p class="lede">{{ $p.hero_text }}</p>
+    <p class="eyebrow hero-goals-kicker">{{ $p.path_kicker }}</p>
+    {{ partial "ribbon.html" (dict "id" "metodo" "nodes" $p.path) }}
+  </div>
+</section>
+<section class="section wrap-narrow prose">
+  {{ range $p.intro }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <p class="pull-inline" data-reveal>{{ $p.dog_q }}</p>
+  {{ with $p.intro_end }}<p data-reveal>{{ . }}</p>{{ end }}
+</section>
+<section class="section-tight wrap">
+  <div class="story">
+    <div class="frame frame-square alive" data-reveal>{{ partial "img.html" (dict "src" "metodos.png" "alt" $p.many_alt "sizes" "(min-width: 900px) 540px, 90vw") }}</div>
+    <div class="prose" data-reveal>
+      <h2>{{ $p.many_title }}</h2>
+      {{ range $p.many }}<p>{{ . | markdownify }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+<section class="section wrap methods">
+  {{ range $i, $m := $p.methods }}
+  <article class="method" id="{{ $m.id }}">
+    <div class="method-art frame {{ $m.frame }} alive alive-{{ add $i 1 }}" data-reveal>{{ partial "img.html" (dict "src" $m.img "alt" $m.alt "sizes" "(min-width: 900px) 560px, 90vw") }}</div>
+    <div data-reveal>
+      <span class="method-num method-num-{{ add $i 1 }}">{{ printf "%02d" (add $i 1) }}</span>
+      <h2>{{ $m.title }}{{ with $m.sub }}<small>{{ . }}</small>{{ end }}</h2>
+      <div class="prose">{{ range $m.body }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{ with $m.list }}<ul class="paws">{{ range . }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>{{ end }}
+        {{ range $m.after }}<p>{{ . | markdownify }}</p>{{ end }}
+      </div>
+      <p class="method-cta">{{ $m.cta_text }}</p>
+      <a class="btn btn-ink" href="{{ "contactar" | relLangURL }}">{{ $p.contact }} {{ partial "icon.html" "arrow" }}</a>
+    </div>
+  </article>
+  {{ end }}
+</section>
+<section class="section">
+  <div class="panel panel-night why-panel">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <p class="eyebrow" data-reveal>{{ $p.why_kicker }}</p>
+    <h2 data-reveal>{{ $p.why_title }}</h2>
+    <div class="why">{{ range $i, $w := $p.why }}<div class="why-card" data-reveal><b>{{ $w.big }}</b><p>{{ $w.text | markdownify }}</p></div>{{ end }}</div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night contact-panel">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ T "contact" }}</p>
+        <h1>{{ $p.hero_title }}</h1>
+        <p class="lede">{{ $p.hero_text }}</p>
+      </div>
+      <div class="contact-dog">{{ partial "img.html" (dict "src" "equipo-intro.png" "alt" "" "eager" true "sizes" "(min-width: 900px) 380px, 60vw") }}</div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card contact-mail" href="{{ site.Params.mailto }}">{{ partial "icon.html" "mail" }}<span>{{ $p.mail_label }}</span><strong>{{ site.Params.email }}</strong></a>
+      <a class="contact-card contact-wa" href="{{ site.Params.whatsapp }}">{{ partial "icon.html" "whatsapp" }}<span>{{ $p.wa_label }}</span><strong>WhatsApp</strong></a>
+    </div>
+  </div>
+</section>
+{{ end }}

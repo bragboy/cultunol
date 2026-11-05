@@ -1,0 +1,73 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night team-hero">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <p class="eyebrow">Cultuñol</p>
+    <h1>{{ $p.hero_title }}</h1>
+    <p class="lede">{{ $p.hero_text }}</p>
+    <div class="team-hero-faces">
+      {{ range $p.people }}
+      <div class="team-hero-face">
+        <button class="flip" type="button" aria-pressed="false" data-flip aria-label="{{ T "photo_toggle" }}: {{ .name }}">
+          <span class="flip-face flip-photo">{{ partial "img.html" (dict "src" .photo "alt" .name "eager" true "sizes" "(min-width: 900px) 300px, 44vw") }}</span>
+          <span class="flip-face flip-dog">{{ partial "img.html" (dict "src" .dog "alt" "" "sizes" "(min-width: 900px) 300px, 44vw") }}</span>
+          <span class="flip-hint">{{ partial "icon.html" "paw" }}</span>
+        </button>
+        <a href="#{{ .id }}"><strong>{{ .name }}</strong></a><span>{{ .role }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ with index $p.people 0 }}
+<section class="section wrap" id="{{ .id }}">
+  <div class="bio">
+    <div class="bio-photos" data-reveal>
+      <div class="frame frame-tall alive">{{ partial "img.html" (dict "src" .photo_big "alt" .name "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+      <div class="bio-pip frame frame-square float">{{ partial "img.html" (dict "src" .dog_big "alt" "" "sizes" "220px") }}</div>
+    </div>
+    <div class="prose" data-reveal>
+      <h2>{{ .name }}</h2>
+      <p class="role">{{ .role }}</p>
+      <p class="bio-quote">{{ .quote }}</p>
+      {{ range .bio }}<p>{{ . | markdownify }}</p>{{ end }}
+      <details class="training"><summary>{{ $p.training }}</summary><ul>{{ range .training }}<li>{{ partial "icon.html" "check" }}<span>{{ . }}</span></li>{{ end }}</ul></details>
+      <p class="bio-more">{{ .more }}</p>
+      <a class="btn btn-ink" href="{{ "metodologia" | relLangURL }}">{{ .more_cta }} {{ partial "icon.html" "arrow" }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ with index $p.people 1 }}
+<section class="section-tight wrap" id="{{ .id }}">
+  <div class="bio bio-flip">
+    <div class="prose" data-reveal>
+      <h2>{{ .name }}</h2>
+      <p class="role">{{ .role }}</p>
+      {{ range .bio }}<p>{{ . | markdownify }}</p>{{ end }}
+      <details class="training"><summary>{{ $p.training }}</summary><ul>{{ range .training }}<li>{{ partial "icon.html" "check" }}<span>{{ . }}</span></li>{{ end }}</ul></details>
+      <p class="bio-more">{{ .more }}</p>
+      <a class="btn btn-ink" href="{{ "cursos" | relLangURL }}">{{ .more_cta }} {{ partial "icon.html" "arrow" }}</a>
+    </div>
+    <div class="bio-photos" data-reveal>
+      <div class="frame frame-tall alive alive-2">{{ partial "img.html" (dict "src" .photo_big "alt" .name "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+      <div class="bio-pip frame frame-square float">{{ partial "img.html" (dict "src" .dog_big "alt" "" "sizes" "220px") }}</div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<section class="section">
+  <div class="panel panel-orange dogs">
+    <div class="c2">
+      <div class="frame frame-square alive alive-3" data-reveal>{{ partial "img.html" (dict "src" "perros.png" "alt" $p.dogs_alt "sizes" "(min-width: 900px) 520px, 90vw") }}</div>
+      <div data-reveal>
+        <p class="eyebrow">{{ $p.dogs_kicker }}</p>
+        <h2>{{ $p.dogs_title }}</h2>
+        <div class="c2-badge"><b>C2</b><span>{{ $p.c2 }}</span></div>
+        <div class="prose dogs-prose">{{ range $p.dogs }}<p>{{ . | markdownify }}</p>{{ end }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

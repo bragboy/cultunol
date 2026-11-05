@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="panel panel-night legal-hero">
+    <p class="eyebrow">Cultuñol</p>
+    <h1>{{ .Params.heading }}</h1>
+    {{ with .Params.note }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="legal wrap-narrow">
+  <div class="prose">{{ (resources.Get "legal.md").Content | .RenderString }}</div>
+</section>
+{{ end }}

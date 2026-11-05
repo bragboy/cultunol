@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">Newsletter</p>
+        <h1>{{ $p.hero_title | markdownify }}</h1>
+        <p class="lede">{{ $p.hero_text }}</p>
+        <p class="lede lede-strong">{{ $p.hero_q }}</p>
+        <div class="hero-actions"><a class="btn btn-orange" href="{{ site.Params.subscribe | relLangURL }}">{{ $p.cta1 }} {{ partial "icon.html" "arrow" }}</a></div>
+      </div>
+      <div class="frame frame-tall alive">{{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.img_alt "eager" true "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+    </div>
+  </div>
+</section>
+<section class="section wrap-narrow prose news-story">
+  {{ range $p.story }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <p class="pull-inline" data-reveal>{{ $p.exclaim }}</p>
+  {{ range $p.story2 }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+</section>
+<section class="section-tight wrap">
+  <div class="story">
+    <div class="frame frame-square alive alive-2" data-reveal>{{ partial "img.html" (dict "src" "monica-dog.png" "alt" $p.me_alt "sizes" "(min-width: 900px) 540px, 90vw") }}</div>
+    <div class="prose" data-reveal>
+      <p class="eyebrow">{{ $p.me_kicker }}</p>
+      <h2>{{ $p.me_title }}</h2>
+      <p>{{ $p.me_text }}</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="panel panel-orange guay">
+    <p class="eyebrow" data-reveal>{{ $p.guay_kicker }}</p>
+    <h2 data-reveal>{{ $p.guay_title }}</h2>
+    <p data-reveal>{{ $p.guay_text }}</p>
+    <p class="guay-small" data-reveal>{{ $p.guay_small }}</p>
+    <a class="btn btn-cream" href="{{ site.Params.subscribe | relLangURL }}" data-reveal>{{ $p.cta2 }} {{ partial "icon.html" "arrow" }}</a>
+  </div>
+</section>
+<section class="section wrap">
+  <header class="section-head" data-reveal><h2>{{ $p.ex_title }}</h2><p>{{ $p.ex_sub }}</p></header>
+  <div class="tiles">
+    {{ range $i, $e := $p.examples }}<div class="tile{{ if eq $i 1 }} tile-dark{{ end }}" data-reveal>{{ partial "icon.html" (index (slice "chat" "search" "smile") $i) }}<p class="tile-lead">{{ $e }}</p></div>{{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ $p.kicker }}</p>
+        <h1>{{ $p.hero_title }}</h1>
+        <p class="lede lede-strong">{{ $p.hero_text }}</p>
+        <div class="hero-actions"><a class="btn btn-orange" href="{{ "contactar" | relLangURL }}">{{ $p.cta }} {{ partial "icon.html" "arrow" }}</a></div>
+      </div>
+      <div class="frame frame-square alive">{{ partial "img.html" (dict "src" "principiantes.png" "alt" $p.img_alt "eager" true "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+    </div>
+  </div>
+</section>
+<section class="section wrap-narrow prose">
+  {{ range $p.intro }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <ul class="paws" data-reveal>{{ range $p.problems }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>
+  {{ range $p.intro2 }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+</section>
+<section class="section-tight wrap">
+  <div class="story">
+    <div class="frame frame-wide alive alive-2" data-reveal>{{ partial "img.html" (dict "src" "tprs.png" "alt" $p.tprs_alt "sizes" "(min-width: 900px) 560px, 90vw") }}</div>
+    <div class="prose" data-reveal>
+      <h2>{{ $p.tprs_q }}</h2>
+      {{ range $p.tprs }}<p>{{ . | markdownify }}</p>{{ end }}
+      <a class="link-more" href="{{ "metodologia" | relLangURL }}">{{ $p.tprs_link }} ›</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="panel panel-leaf outcome">
+    <h2 data-reveal>{{ $p.out_title }}</h2>
+    <ol class="outcome-list">{{ range $i, $o := $p.outcomes }}<li data-reveal><span>{{ printf "%02d" (add $i 1) }}</span>{{ $o }}</li>{{ end }}</ol>
+    <p class="outcome-big" data-reveal>{{ $p.enjoy }}</p>
+  </div>
+</section>
+<section class="section-tight wrap-narrow">
+  <div class="callout" data-reveal>{{ partial "icon.html" "spark" }}<div><p><strong>{{ $p.warn_title }}</strong> {{ $p.warn }}</p><p>{{ $p.promise }}</p></div></div>
+</section>
+<section class="section wrap">
+  <div class="tiles tiles-4">
+    {{ range $i, $f := $p.facts }}
+    <div class="tile{{ if eq $i 0 }} tile-orange{{ end }}" data-reveal>{{ partial "icon.html" $f.icon }}<h3>{{ $f.title }}</h3><ul>{{ range $f.items }}<li>{{ partial "icon.html" "check" }}<span>{{ . }}</span></li>{{ end }}</ul></div>
+    {{ end }}
+  </div>
+</section>
+<section class="section-tight wrap">
+  <header class="section-head" data-reveal><h2>{{ $p.price_title }}</h2></header>
+  <div class="prices">
+    <div class="price" data-reveal><span class="price-label">{{ $p.split_label }}</span><b class="price-amount">325 €</b><span class="price-alt">275£ / 366$</span><div class="price-steps">{{ range $p.split_steps }}<span>{{ . }}</span>{{ end }}</div></div>
+    <div class="price price-best" data-reveal><span class="price-label">{{ $p.single_label }}</span><b class="price-amount">300 €</b><span class="price-alt">255£ / 338$</span></div>
+  </div>
+  <p class="price-note" data-reveal>{{ $p.price_note }}</p>
+  <div class="center" data-reveal><a class="btn btn-orange" href="{{ "contactar" | relLangURL }}">{{ $p.cta2 }} {{ partial "icon.html" "arrow" }}</a></div>
+</section>
+{{ end }}

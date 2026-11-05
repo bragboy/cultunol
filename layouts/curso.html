@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ $p.kicker }}</p>
+        <h1>{{ $p.hero_title | markdownify }}</h1>
+        <p class="lede">{{ $p.hero_text }}</p>
+        <div class="hero-actions"><a class="btn btn-orange" href="{{ site.Params.mailto }}">{{ $p.cta_mail }} {{ partial "icon.html" "mail" }}</a><a class="btn btn-glass" href="{{ site.Params.subscribe | relLangURL }}">{{ $p.cta_sub }}</a></div>
+      </div>
+      <div class="frame frame-tall alive">{{ partial "img.html" (dict "src" "cultura.png" "alt" $p.img_alt "eager" true "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+    </div>
+    <p class="eyebrow hero-goals-kicker">{{ $p.path_kicker }}</p>
+    {{ partial "ribbon.html" (dict "id" "curso" "nodes" $p.path) }}
+  </div>
+</section>
+<section class="section wrap-narrow">
+  <p class="lit" data-lit>{{ $p.manifesto | markdownify }}</p>
+  <div class="prose course-prose">{{ range $p.body }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}</div>
+</section>
+<section class="section-tight wrap">
+  <div class="tiles">
+    {{ range $i, $t := $p.facts }}<div class="tile{{ if eq $i 0 }} tile-orange{{ else if eq $i 1 }} tile-dark{{ end }}" data-reveal>{{ partial "icon.html" $t.icon }}<span class="tile-big">{{ $t.big }}</span><p>{{ $t.text | markdownify }}</p></div>{{ end }}
+  </div>
+</section>
+<section class="section wrap-narrow prose">
+  {{ range $p.closing }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <div class="hero-actions" data-reveal><a class="btn btn-orange" href="{{ site.Params.mailto }}">{{ site.Params.email }} {{ partial "icon.html" "mail" }}</a><a class="btn btn-line" href="{{ site.Params.subscribe | relLangURL }}">{{ $p.cta_sub }}</a></div>
+</section>
+{{ end }}
