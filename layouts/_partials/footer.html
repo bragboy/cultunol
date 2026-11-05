@@ -1,0 +1,21 @@
+<footer class="footer">
+  <div class="footer-paws" aria-hidden="true">{{ range seq 7 }}{{ partial "icon.html" "paw" }}{{ end }}</div>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="Cultuñol">{{ partial "logo.html" . }}</a>
+      <p>{{ T "footer_tag" }}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      {{ partial "menu.html" . }}
+      <a href="{{ "contactar" | relLangURL }}">{{ T "contact" }}</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="{{ site.Params.mailto }}">{{ partial "icon.html" "mail" }}{{ site.Params.email }}</a>
+      <a href="{{ site.Params.whatsapp }}">{{ partial "icon.html" "whatsapp" }}WhatsApp</a>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>© {{ now.Year }} Cultuñol</p>
+    <a href="{{ "legal-page" | relLangURL }}">{{ T "privacy" }}</a>
+  </div>
+</footer>

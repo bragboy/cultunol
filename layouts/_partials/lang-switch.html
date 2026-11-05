@@ -1,0 +1,9 @@
+{{- $other := "" -}}
+{{- range .Translations }}{{ $other = . }}{{ end -}}
+{{- if not $other }}{{ range site.Home.Translations }}{{ $other = . }}{{ end }}{{ end -}}
+{{- $here := printf `<span class="lang-on" aria-current="true">%s</span>` site.Language.Params.short -}}
+{{- $there := "" -}}
+{{- with $other }}{{ $there = printf `<a href="%s" hreflang="%s" lang="%s" title="%s">%s</a>` .RelPermalink .Language.Lang .Language.Lang .Language.Label .Language.Params.short }}{{ end -}}
+<div class="lang" role="group" aria-label="{{ T "switch_label" }}">
+  {{- if eq site.Language.Lang "es" }}{{ $here | safeHTML }}{{ $there | safeHTML }}{{ else }}{{ $there | safeHTML }}{{ $here | safeHTML }}{{ end -}}
+</div>

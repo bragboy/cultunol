@@ -1,0 +1,6 @@
+public/
+dist/
+resources/_gen/
+.hugo_build.lock
+.playwright-mcp/
+.DS_Store

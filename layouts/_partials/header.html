@@ -1,0 +1,14 @@
+<header class="nav" data-nav>
+  <div class="nav-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="Cultuñol">{{ partial "logo.html" . }}</a>
+    <nav class="nav-links" aria-label="{{ T "menu" }}">{{ partial "menu.html" . }}</nav>
+    <div class="nav-end">
+      {{ partial "lang-switch.html" . }}
+      <a class="btn btn-sm btn-ink nav-cta" href="{{ "contactar" | relLangURL }}">{{ T "contact" }}</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr">{{ T "menu" }}</span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" data-menu hidden>
+    <nav aria-label="{{ T "menu" }}">{{ partial "menu.html" . }}<a href="{{ "contactar" | relLangURL }}">{{ T "contact" }}</a></nav>
+  </div>
+</header>

@@ -1,0 +1,108 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="hero">
+  <div class="panel panel-night hero-panel">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="hero-paws" aria-hidden="true">{{ range seq 5 }}{{ partial "icon.html" "paw" }}{{ end }}</div>
+    <div class="hero-copy">
+      <h1 class="hero-title"><span class="line">{{ $p.hero.title }}</span></h1>
+      <p class="hero-lead"><span class="grad-text">{{ $p.hero.lead }}</span></p>
+      <p class="hero-text">{{ $p.hero.text }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-orange" href="{{ "cursos" | relLangURL }}">{{ $p.hero.cta }} {{ partial "icon.html" "arrow" }}</a>
+        <a class="btn btn-glass" href="{{ site.Params.subscribe }}">{{ T "newsletter_btn" }}</a>
+      </div>
+    </div>
+    <figure class="hero-dog" aria-hidden="true">
+      {{ partial "img.html" (dict "src" "equipo-intro.png" "alt" "" "eager" true "sizes" "(min-width: 900px) 420px, 70vw") }}
+    </figure>
+    <p class="eyebrow hero-goals-kicker">{{ $p.hero.goals_kicker }}</p>
+    {{ partial "ribbon.html" (dict "id" "home" "nodes" $p.hero.goals) }}
+  </div>
+</section>
+
+<section class="zoom" data-zoom>
+  <div class="zoom-stage">
+    <figure class="zoom-frame">
+      {{ partial "img.html" (dict "src" "hero-board.png" "alt" $p.board_alt "sizes" "100vw") }}
+    </figure>
+  </div>
+</section>
+
+<section class="manifesto wrap-narrow">
+  <p class="lit" data-lit>{{ $p.manifesto | markdownify }}</p>
+  <div class="manifesto-qa">
+    <p class="manifesto-q" data-reveal>{{ $p.question }}</p>
+    <p class="manifesto-a" data-reveal>{{ $p.answer | markdownify }}</p>
+    <p class="manifesto-a" data-reveal>{{ $p.welcome | markdownify }}</p>
+  </div>
+</section>
+
+<section class="courses wrap">
+  <header class="section-head" data-reveal>
+    <p class="eyebrow">{{ $p.courses_kicker }}</p>
+    <h2>{{ $p.courses_title }}</h2>
+  </header>
+  <div class="course-grid">
+    {{ range $i, $c := $p.courses }}
+    <a class="course-card{{ if $c.star }} course-star{{ end }}" href="{{ $c.href | relLangURL }}" data-reveal data-tilt>
+      {{ if $c.star }}
+        <span class="course-star-badge">{{ partial "icon.html" "star" }}</span>
+        <h3>{{ $c.title }}</h3>
+        <p class="course-badge">{{ $c.badge }}</p>
+        <p class="course-text">{{ $c.text | markdownify }}</p>
+        <div class="course-star-art" aria-hidden="true">{{ partial "img.html" (dict "src" "cultura.png" "alt" "" "sizes" "360px") }}</div>
+      {{ else }}
+        <h3>{{ $c.title }}</h3>
+        <div class="course-art">{{ partial "img.html" (dict "src" $c.img "alt" $c.alt "sizes" "(min-width: 900px) 360px, 86vw") }}</div>
+      {{ end }}
+      <span class="course-cta">{{ $c.cta }} {{ partial "icon.html" "arrow" }}</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {{ range seq 2 }}{{ range $p.marquee }}<span>{{ . }}</span>{{ partial "icon.html" "paw" }}{{ end }}{{ end }}
+  </div>
+</div>
+
+<section class="news-tile">
+  <div class="panel panel-leaf news-panel">
+    <div class="news-copy" data-reveal>
+      <p class="eyebrow">{{ $p.news.kicker }}</p>
+      <h2>{{ $p.news.title }}</h2>
+      <p class="news-sub">{{ $p.news.sub }}</p>
+      <p>{{ $p.news.p1 | markdownify }}</p>
+      <p>{{ $p.news.p2 | markdownify }}</p>
+      <ul class="chips">{{ range $p.news.list }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>
+      <a class="btn btn-cream" href="{{ site.Params.subscribe }}">{{ $p.news.cta }} {{ partial "icon.html" "arrow" }}</a>
+    </div>
+    <figure class="news-art" data-reveal>
+      {{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.news.alt "sizes" "(min-width: 900px) 440px, 80vw") }}
+    </figure>
+  </div>
+</section>
+
+<section class="team wrap">
+  <header class="section-head team-head" data-reveal>
+    <h2>{{ $p.team.title }}</h2>
+    <p>{{ $p.team.text }}</p>
+    <a class="link-more" href="{{ "equipo" | relLangURL }}">{{ $p.team.cta }} ›</a>
+  </header>
+  <div class="team-grid">
+    {{ range $p.team.people }}
+    <article class="person" data-reveal>
+      <button class="flip" type="button" aria-pressed="false" data-flip aria-label="{{ T "photo_toggle" }}: {{ .name }}">
+        <span class="flip-face flip-photo">{{ partial "img.html" (dict "src" .photo "alt" .name "sizes" "(min-width: 900px) 380px, 80vw") }}</span>
+        <span class="flip-face flip-dog">{{ partial "img.html" (dict "src" .dog "alt" "" "sizes" "(min-width: 900px) 380px, 80vw") }}</span>
+        <span class="flip-hint">{{ partial "icon.html" "paw" }}</span>
+      </button>
+      <h3><a href="{{ "equipo" | relLangURL }}">{{ .name }}</a></h3>
+      <p>{{ .role }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

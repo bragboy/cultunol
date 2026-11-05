@@ -1,0 +1,71 @@
+baseURL = "https://www.cultunol.com/"
+title = "Cultuñol"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+defaultContentLanguage = "es"
+defaultContentLanguageInSubdir = false
+
+[params]
+  subscribe = "https://www.cultunol.com/suscribirse"
+  whatsapp = "https://wa.me/34680983874"
+  email = "info@cultunol.com"
+  mailto = "mailto:info@monicafiestas.com"
+
+[languages.es]
+  label = "Español"
+  locale = "es"
+  weight = 1
+  [languages.es.params]
+    short = "ES"
+    description = "Clases y grupos de español online para adultos que quieren hablar, descubrir otras culturas y dar más espacio al español en su vida."
+  [[languages.es.menus.main]]
+    name = "Newsletter"
+    pageRef = "/newsletter"
+    weight = 10
+  [[languages.es.menus.main]]
+    name = "Cursos de español"
+    pageRef = "/cursos"
+    weight = 20
+  [[languages.es.menus.main]]
+    name = "¿Quiénes somos?"
+    pageRef = "/equipo"
+    weight = 30
+  [[languages.es.menus.main]]
+    name = "Metodología"
+    pageRef = "/metodologia"
+    weight = 40
+
+[languages.en]
+  label = "English"
+  locale = "en"
+  weight = 2
+  [languages.en.params]
+    short = "EN"
+    description = "Online Spanish classes and groups for adults who want to speak, discover other cultures and make more room for Spanish in their lives."
+  [[languages.en.menus.main]]
+    name = "Newsletter"
+    pageRef = "/newsletter"
+    weight = 10
+  [[languages.en.menus.main]]
+    name = "Spanish courses"
+    pageRef = "/cursos"
+    weight = 20
+  [[languages.en.menus.main]]
+    name = "About us"
+    pageRef = "/equipo"
+    weight = 30
+  [[languages.en.menus.main]]
+    name = "Method"
+    pageRef = "/metodologia"
+    weight = 40
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.webp]
+    quality = 82
+
+[minify.tdewolff.html]
+  keepWhitespace = false

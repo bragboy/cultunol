@@ -1,0 +1,13 @@
+{{- /* Responsive WebP image. dict: src, alt, sizes, class, eager */ -}}
+{{- $img := resources.Get (printf "images/%s" .src) -}}
+{{- $set := slice -}}
+{{- $fallback := "" -}}
+{{- range slice 480 800 1200 1600 -}}
+  {{- if le . $img.Width -}}
+    {{- $r := $img.Resize (printf "%dx webp" .) -}}
+    {{- $set = $set | append (printf "%s %dw" $r.RelPermalink .) -}}
+    {{- if eq . 800 }}{{ $fallback = $r }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $fallback }}{{ $fallback = $img.Resize (printf "%dx webp" (math.Min $img.Width 800)) }}{{ end -}}
+<img src="{{ $fallback.RelPermalink }}" srcset="{{ delimit $set ", " }}" sizes="{{ .sizes | default "(min-width: 1100px) 560px, 92vw" }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}"{{ with .class }} class="{{ . }}"{{ end }}{{ if .eager }} fetchpriority="high"{{ else }} loading="lazy" decoding="async"{{ end }}>

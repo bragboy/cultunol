@@ -1,0 +1,26 @@
+{{- /* Glowing ribbon that links numbered nodes. dict: nodes (slice of dict icon,title,sub[,href]), id */ -}}
+{{- $id := .id | default "r" -}}
+{{- $d := "M-60 96C40 96 80 40 167 40S340 130 500 96S700 30 833 52S980 120 1060 70" -}}
+<div class="ribbon" data-reveal>
+  <svg class="ribbon-svg" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs><linearGradient id="rib-{{ $id }}" x1="0" x2="1"><stop offset="0" stop-color="#f7b56b"/><stop offset=".35" stop-color="#f27d2c"/><stop offset=".68" stop-color="#7cc483"/><stop offset="1" stop-color="#86b6ee"/></linearGradient></defs>
+    <path d="{{ $d }}" stroke="url(#rib-{{ $id }})" stroke-width="36" opacity=".06" fill="none"/>
+    <path d="{{ $d }}" stroke="url(#rib-{{ $id }})" stroke-width="12" opacity=".16" fill="none"/>
+    <path class="ribbon-line" d="{{ $d }}" pathLength="1" stroke="url(#rib-{{ $id }})" stroke-width="3" fill="none"/>
+    <path class="ribbon-comet" d="{{ $d }}" pathLength="1" stroke="#fff6e8" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <path d="M-60 110C40 110 80 54 167 54S340 144 500 110S700 44 833 66S980 134 1060 84" stroke="url(#rib-{{ $id }})" stroke-width=".8" opacity=".45" fill="none"/>
+    <path d="M-60 82C40 82 80 26 167 26S340 116 500 82S700 16 833 38S980 106 1060 56" stroke="url(#rib-{{ $id }})" stroke-width=".8" opacity=".45" fill="none"/>
+  </svg>
+  <ol class="ribbon-nodes">
+    {{- range $i, $n := .nodes }}
+    <li class="ribbon-node ribbon-node-{{ add $i 1 }}">
+      {{ if $n.href }}<a href="{{ $n.href }}">{{ end }}
+      <span class="ribbon-badge">{{ partial "icon.html" $n.icon }}</span>
+      <span class="ribbon-index">{{ printf "%02d" (add $i 1) }}</span>
+      <span class="ribbon-title">{{ $n.title }}</span>
+      {{ with $n.sub }}<span class="ribbon-sub">{{ . }}</span>{{ end }}
+      {{ if $n.href }}</a>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</div>
