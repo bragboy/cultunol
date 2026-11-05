@@ -12,7 +12,7 @@ mise run dev       # http://127.0.0.1:1313
 mise run build     # production build into dist/
 ```
 
-For a temporary domain, build with `hugo --gc --minify --destination dist --baseURL https://<temp-domain>/` so canonical and og:url point at it.
+Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /var/www/cultunol). `mise run deploy` builds with that baseURL and rsyncs.
 
 ## Pages (same paths as the original site)
 
