@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night funnel-panel">
+    <div class="panel-glow" aria-hidden="true"></div>
+    {{ if eq $p.variant "pending" }}
+    <svg class="funnel-art envelope" viewBox="0 0 120 100" aria-hidden="true"><rect class="draw" x="8" y="22" width="86" height="62" rx="12" pathLength="1"/><path class="draw" d="M14 30l37 28 37-28" pathLength="1"/><circle class="pop" cx="94" cy="26" r="18"/><path class="pop-x" d="M87 19l14 14M101 19L87 33"/></svg>
+    {{ else }}
+    <svg class="funnel-art tick" viewBox="0 0 120 120" aria-hidden="true"><circle class="draw ring" cx="60" cy="60" r="48" pathLength="1"/><path class="draw tick-path" d="M38 62l15 15 31-34" pathLength="1"/></svg>
+    {{ end }}
+    <h1>{{ $p.hero_title }}</h1>
+    {{ with $p.hero_text }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ if eq $p.variant "done" }}
+    <div class="hero-actions funnel-actions"><a class="btn btn-orange" href="{{ "newsletter" | relLangURL }}">Newsletter {{ partial "icon.html" "arrow" }}</a><a class="btn btn-glass" href="{{ site.Home.RelPermalink }}">{{ T "home" }}</a></div>
+    {{ end }}
+  </div>
+</section>
+{{ if eq $p.variant "pending" }}
+<section class="section wrap-narrow prose funnel-body">
+  {{ range $p.before }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <div class="joke" data-reveal>
+    <p class="joke-q">{{ $p.joke_q }}</p>
+    <p class="joke-think">{{ $p.joke_think }}</p>
+    <button class="btn btn-ink" type="button" data-joke aria-expanded="false" aria-controls="joke-a">{{ $p.joke_btn }}</button>
+    <div id="joke-a" class="joke-a" hidden>
+      <p class="joke-punch">{{ $p.joke_a }}</p>
+      <p class="joke-laugh">{{ $p.joke_laugh }}</p>
+      {{ with $p.joke_note }}<p class="joke-note">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+  {{ range $p.after }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+  <ol class="steps" data-reveal>{{ range $i, $s := $p.steps }}<li><span>{{ add $i 1 }}</span>{{ $s }}</li>{{ end }}</ol>
+  <p class="funnel-bye" data-reveal>{{ $p.bye }}</p>
+</section>
+{{ end }}
+{{ end }}

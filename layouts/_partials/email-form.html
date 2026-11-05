@@ -1,0 +1,9 @@
+{{- /* Email capture, not wired yet: validates and shows a pending note. dict: label, button, id */ -}}
+<form class="mail-form" data-subscribe novalidate>
+  <label class="sr" for="{{ .id }}">{{ .label }}</label>
+  <div class="mail-row">
+    <input id="{{ .id }}" type="email" name="email" autocomplete="email" placeholder="{{ .label }}" required>
+    <button class="btn btn-orange" type="submit">{{ .button }} {{ partial "icon.html" "arrow" }}</button>
+  </div>
+  <p class="sub-note" data-subscribe-note hidden role="status">{{ T "pending" | safeHTML }}</p>
+</form>

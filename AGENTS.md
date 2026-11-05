@@ -16,13 +16,14 @@ Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /v
 
 ## Pages (same paths as the original site)
 
-`/`, `/newsletter`, `/suscribirse`, `/cursos`, `/cursos-grupales`, `/cultunol_principiantes`, `/curso_cultunol`, `/equipo`, `/metodologia`, `/contactar`, `/legal-page`. Each has a `content/<name>.es.md` and `.en.md` twin; copy lives in front matter, and each page has its own template in `layouts/`.
+`/`, `/newsletter`, `/suscribirse`, `/bundle`, `/2suscripcionmochila`, `/suscrito`, `/cursos`, `/cursos-grupales`, `/cultunol_principiantes`, `/curso_cultunol`, `/equipo`, `/metodologia`, `/contactar`, `/legal-page`. Each has a `content/<name>.es.md` and `.en.md` twin; copy lives in front matter, and each page has its own template in `layouts/`.
 
 ## Content rules
 
 - Spanish copy is Mónica's, verbatim from the original site (`reference/crawl/content.txt`). English is a faithful translation. Never invent facts, prices, testimonials or stats.
 - The legal page is English on the original and stays verbatim in both languages (`assets/legal.md`).
 - No em-dashes or en-dashes in new text.
+- Check the original `sitemap.xml` as well as the menus: Systeme funnel pages are only listed there.
 - Images are hers, downloaded from the original site into `assets/images/` and served as responsive WebP via the `img.html` partial.
 
 ## Known gaps

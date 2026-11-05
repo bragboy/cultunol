@@ -138,16 +138,26 @@
       opts.sort((a, b) => collator.compare(a.textContent, b.textContent)).forEach(o => select.appendChild(o));
     } catch (e) { /* keep ISO codes */ }
   }
-  const form = document.querySelector('[data-subscribe]');
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let ok = true;
-    form.querySelectorAll('[required]').forEach(input => {
-      const bad = !input.value.trim() || (input.type === 'email' && !input.checkValidity());
-      input.setAttribute('aria-invalid', String(bad));
-      if (bad && ok) { input.focus(); ok = false; }
+  document.querySelectorAll('[data-subscribe]').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let ok = true;
+      form.querySelectorAll('[required]').forEach(input => {
+        const bad = !input.value.trim() || (input.type === 'email' && !input.checkValidity());
+        input.setAttribute('aria-invalid', String(bad));
+        if (bad && ok) { input.focus(); ok = false; }
+      });
+      if (ok) form.querySelector('[data-subscribe-note]').hidden = false;
     });
-    if (ok) form.querySelector('[data-subscribe-note]').hidden = false;
+  });
+
+  // Joke reveal on the "not subscribed yet" page.
+  document.querySelectorAll('[data-joke]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = document.getElementById(btn.getAttribute('aria-controls'));
+      answer.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      btn.hidden = true;
+    });
   });
 })();

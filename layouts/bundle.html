@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<section class="page-hero">
+  <div class="panel panel-night bundle-hero">
+    <div class="panel-glow" aria-hidden="true"></div>
+    <div class="split-hero">
+      <div>
+        <p class="eyebrow">{{ $p.kicker }}</p>
+        <h1><span class="bundle-num">5</span> {{ $p.hero_title }}</h1>
+        <p class="bundle-sub">{{ $p.hero_sub }}</p>
+        <p class="lede">{{ $p.hero_text }}</p>
+        <p class="bundle-cta-label">{{ $p.form_label }}</p>
+        {{ partial "email-form.html" (dict "id" "bundle-email-1" "label" $p.email "button" $p.send) }}
+      </div>
+      <div class="frame frame-tall alive bundle-art">{{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.img_alt "eager" true "sizes" "(min-width: 900px) 460px, 90vw") }}</div>
+    </div>
+  </div>
+</section>
+<section class="section wrap-narrow prose">
+  {{ range $p.story }}<p data-reveal>{{ . | markdownify }}</p>{{ end }}
+</section>
+<section class="section-tight wrap">
+  <header class="section-head" data-reveal><h2>{{ $p.inside_title }}</h2></header>
+  <ol class="inside">
+    {{ range $i, $x := $p.inside }}<li data-reveal><span class="inside-n">{{ add $i 1 }}</span><p>{{ $x }}</p></li>{{ end }}
+  </ol>
+</section>
+<section class="section-tight wrap-narrow">
+  <div class="callout" data-reveal>{{ partial "icon.html" "book" }}<div><p><strong>{{ $p.for_title }}</strong></p><p>{{ $p.for_text }}</p></div></div>
+</section>
+<section class="section wrap">
+  <div class="bio">
+    <div class="bio-photos" data-reveal>
+      <div class="frame frame-tall alive">{{ partial "img.html" (dict "src" "equipo-monica.jpeg" "alt" "Mónica Fiestas" "sizes" "(min-width: 900px) 480px, 90vw") }}</div>
+      <div class="bio-pip frame frame-square float">{{ partial "img.html" (dict "src" "monica-dog.png" "alt" "" "sizes" "220px") }}</div>
+    </div>
+    <div class="prose" data-reveal>
+      <h2>{{ $p.hi_title }}</h2>
+      {{ range $p.hi }}<p>{{ . | markdownify }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+<section class="section-tight">
+  <div class="panel panel-orange guay">
+    <p class="eyebrow" data-reveal>{{ $p.kicker }}</p>
+    <h2 data-reveal>{{ $p.form_label }}</h2>
+    <div class="guay-form" data-reveal>{{ partial "email-form.html" (dict "id" "bundle-email-2" "label" $p.email "button" $p.send) }}</div>
+  </div>
+</section>
+{{ end }}
