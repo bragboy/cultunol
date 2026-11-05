@@ -3,7 +3,7 @@
 <section class="hero">
   <div class="panel panel-night hero-panel">
     <div class="panel-glow" aria-hidden="true"></div>
-    <div class="hero-paws" aria-hidden="true">{{ range seq 5 }}{{ partial "icon.html" "paw" }}{{ end }}</div>
+    <div class="paw-trail" aria-hidden="true">{{ range seq 10 }}<span>{{ partial "icon.html" "paw" }}</span>{{ end }}</div>
     <div class="hero-copy">
       <h1 class="hero-title"><span class="line">{{ $p.hero.title }}</span></h1>
       <p class="hero-lead"><span class="grad-text">{{ $p.hero.lead }}</span></p>
@@ -15,6 +15,7 @@
     </div>
     <figure class="hero-dog" aria-hidden="true">
       {{ partial "img.html" (dict "src" "equipo-intro.png" "alt" "" "eager" true "sizes" "(min-width: 900px) 420px, 70vw") }}
+      <span class="bubble"><span>¡Hola!</span><span>Hello!</span><span>¡Guau!</span></span>
     </figure>
     <p class="eyebrow hero-goals-kicker">{{ $p.hero.goals_kicker }}</p>
     {{ partial "ribbon.html" (dict "id" "home" "nodes" $p.hero.goals) }}
@@ -79,8 +80,9 @@
       <ul class="chips">{{ range $p.news.list }}<li>{{ partial "icon.html" "paw" }}{{ . }}</li>{{ end }}</ul>
       <a class="btn btn-cream" href="{{ site.Params.subscribe | relLangURL }}">{{ $p.news.cta }} {{ partial "icon.html" "arrow" }}</a>
     </div>
-    <figure class="news-art" data-reveal>
-      {{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.news.alt "sizes" "(min-width: 900px) 440px, 80vw") }}
+    <figure class="news-art postcard" data-reveal>
+      <div class="postcard-img">{{ partial "img.html" (dict "src" "newsletter-dog.png" "alt" $p.news.alt "sizes" "(min-width: 900px) 440px, 80vw") }}</div>
+      {{ partial "postmark.html" . }}
     </figure>
   </div>
 </section>
@@ -91,7 +93,7 @@
     <p>{{ $p.team.text }}</p>
     <a class="link-more" href="{{ "equipo" | relLangURL }}">{{ $p.team.cta }} ›</a>
   </header>
-  <div class="team-grid">
+  <div class="team-grid" data-peek>
     {{ range $p.team.people }}
     <article class="person" data-reveal>
       <button class="flip" type="button" aria-pressed="false" data-flip aria-label="{{ T "photo_toggle" }}: {{ .name }}">

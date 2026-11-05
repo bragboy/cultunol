@@ -13,7 +13,7 @@ hero:
     - { icon: chat, title: "express yourself quickly" }
     - { icon: fan, title: "enjoy the culture" }
 board_alt: "Cultuñol illustration: a dog in a Madrid T-shirt points at a map full of scenes from Spanish-speaking culture. Use your Spanish to understand more, express yourself quickly and enjoy the culture."
-manifesto: "Cultuñol is a Spanish academy built so that **the Spanish language is a means, not an end.**"
+manifesto: "Cultuñol is a Spanish academy built so that **the Spanish language is a <span class=\"medio\">means</span>, not an <span class=\"fin\">end</span>.**"
 question: "So what does that mean?"
 answer: "This academy is for everyone who **has no chance to speak Spanish in their daily life, but would love to.**"
 welcome: "So welcome, and **explore our courses.**"

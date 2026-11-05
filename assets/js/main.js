@@ -83,10 +83,10 @@
       const words = block.querySelectorAll('.w');
       const r = block.getBoundingClientRect();
       const start = vh * 0.85;
-      const end = vh * 0.35;
-      const p = reduce.matches ? 1 : Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height * 0.6)));
+      const p = reduce.matches ? 1 : Math.min(1, Math.max(0, (start - r.top) / (vh * 0.35 + r.height * 0.4)));
       const n = Math.round(p * words.length);
       words.forEach((w, i) => w.classList.toggle('on', i < n));
+      if (n >= words.length) block.classList.add('done');
     });
   };
   const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
@@ -117,6 +117,22 @@
   document.querySelectorAll('[data-flip]').forEach(btn => {
     btn.addEventListener('click', () => btn.setAttribute('aria-pressed', String(btn.getAttribute('aria-pressed') !== 'true')));
   });
+
+  // Portraits peek at their dog version once, the first time the team comes into view.
+  const peek = document.querySelector('[data-peek]');
+  if (peek && 'IntersectionObserver' in window && !reduce.matches) {
+    const po = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      po.disconnect();
+      peek.querySelectorAll('[data-flip]').forEach((flip, i) => {
+        setTimeout(() => {
+          flip.classList.add('peek');
+          flip.addEventListener('animationend', () => flip.classList.remove('peek'), { once: true });
+        }, 900 + i * 450);
+      });
+    }, { threshold: 0.55 });
+    po.observe(peek);
+  }
 
   // "Coming soon" dialog.
   const soon = document.getElementById('soon');

@@ -13,7 +13,7 @@ hero:
     - { icon: chat, title: "expresarte rápido" }
     - { icon: fan, title: "disfrutar de la cultura" }
 board_alt: "Ilustración de Cultuñol: un perro con camiseta de Madrid señala un mapa lleno de escenas de la cultura en español. Usa tu español para comprender más, expresarte rápido y disfrutar de la cultura."
-manifesto: "Cultuñol es una academia de español que está pensada para que **el idioma español sea un medio y no un fin.**"
+manifesto: "Cultuñol es una academia de español que está pensada para que **el idioma español sea un <span class=\"medio\">medio</span> y no un <span class=\"fin\">fin</span>.**"
 question: "¿Y eso qué quiere decir?"
 answer: "Esta academia está pensada para todas aquellas personas que **no tienen la posibilidad de hablar en español en su día a día, pero que les gustaría hacerlo.**"
 welcome: "Así que bienvenido y **explora nuestros cursos.**"
