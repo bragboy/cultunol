@@ -43,6 +43,10 @@ facts:
 price_title: "¿Cuánto cuesta?"
 split_label: "Pago fraccionado"
 split_steps: ["Pago 1", "Pago 2", "Pago 3"]
+split_price: "325 €"
+split_alt: "275 £ / 366 $"
+single_price: "300 €"
+single_alt: "255 £ / 338 $"
 single_label: "Pago único"
 price_note: "Contacta con nosotros y te informaremos cuándo es el próximo lanzamiento de este curso."
 cta2: "Me interesa"

@@ -43,6 +43,10 @@ facts:
 price_title: "How much does it cost?"
 split_label: "Pay in instalments"
 split_steps: ["Payment 1", "Payment 2", "Payment 3"]
+split_price: "€325"
+split_alt: "£275 / $366"
+single_price: "€300"
+single_alt: "£255 / $338"
 single_label: "Single payment"
 price_note: "Get in touch and we will let you know when this course next starts."
 cta2: "I'm interested"
