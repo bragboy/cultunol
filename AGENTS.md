@@ -28,7 +28,7 @@ Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /v
 
 ## Known gaps
 
-- `/suscribirse` and the two `/bundle` email forms are not wired yet. It validates and shows a "coming soon, write to us" note. Hook them to Systeme.io (or another provider) later.
+- `/suscribirse` and the two `/bundle` email forms are not wired yet. They validate and show a "coming soon, write to us" note. Hook them to Systeme.io (or another provider) later.
 - Her funnel page says "Añádame" (usted) while the rest uses tú; kept verbatim, worth asking her.
 - The original site's email links point to `mailto:info@monicafiestas.com` while showing `info@cultunol.com`. Kept as is; confirm with Mónica.
 
