@@ -28,7 +28,8 @@ Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /v
 
 ## Known gaps
 
-- `/suscribirse` form is not wired yet. It validates and shows a "coming soon, write to us" note. Hook it to Systeme.io (or another provider) later.
+- `/suscribirse` and the two `/bundle` email forms are not wired yet. It validates and shows a "coming soon, write to us" note. Hook them to Systeme.io (or another provider) later.
+- Her funnel page says "Añádame" (usted) while the rest uses tú; kept verbatim, worth asking her.
 - The original site's email links point to `mailto:info@monicafiestas.com` while showing `info@cultunol.com`. Kept as is; confirm with Mónica.
 
 ## Design
@@ -39,3 +40,12 @@ Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /v
 - All art sits in fixed-ratio frames anchored to the top (`.frame`) so crops are consistent.
 - No inline scripts or style attributes; JS in `assets/js/main.js`. Respect `prefers-reduced-motion`.
 - Check every change at 1440px and 390px with Playwright: no horizontal scroll, no console errors.
+
+## Decisions from Braga's feedback (keep these)
+
+- Phones: every panel sits 16px from each side (`--inset`), the same line as the text. Braga cares about side breathing room, not vertical gaps.
+- Portraits flip photo to dog: hover on desktop, tap to toggle on touch, keyboard focus shows the dog. Mouse clicks never lock it. No automatic "peek" animation (rejected).
+- Home motion: greeting bubble (¡Hola!/Hello!/¡Guau!), paw trail in the hero, "fin" struck through in the manifesto, Paraguay postmark on the newsletter postcard, ribbon nodes pulsing with the travelling light.
+- Prices: Spanish "325 €" style with non-breaking spaces, English "€325" style; amounts never change.
+- Portraits `monica.jpg`, `ana.jpeg`, `equipo-monica.jpeg` are AI-restored versions Braga approved (faces checked against originals). Stock images from her funnel pages (watermarked envelope, check mark) are replaced by drawn SVG animations.
+- Workflow: commit after each change, deploy with `mise run deploy`, show screenshots so Braga can give feedback.
