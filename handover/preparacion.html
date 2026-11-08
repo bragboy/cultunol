@@ -66,7 +66,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
 
 <div class="note blue"><b>Antes de empezar:</b> no tienes que entender nada de lo que escribes, solo copiarlo tal cual. Si un paso falla, haz una captura de pantalla del error y mándamela por WhatsApp. No pasa nada.</div>
 
-<div class="note"><b>Cómo copiar y pegar comandos:</b> selecciona el texto de los recuadros oscuros de este PDF y cópialo con <code>Ctrl + C</code>. En la ventana negra de Ubuntu se pega con <b>clic derecho</b> (o <code>Ctrl + Shift + V</code>). Después pulsa <b>Enter</b>. Copia un recuadro cada vez.</div>
+<div class="note"><b>Cómo copiar y pegar comandos:</b> selecciona el texto de los recuadros oscuros de este PDF y cópialo con <code>Ctrl + C</code>. En la terminal WSL (la ventana negra) se pega con <b>clic derecho</b> (o <code>Ctrl + Shift + V</code>). Después pulsa <b>Enter</b>. Copia un recuadro cada vez.</div>
 
 <section class="step s1">
   <div class="step-head"><div class="num">1</div><h2>Cambia ChatGPT Plus por Claude Pro</h2><span>5 min</span></div>
@@ -78,8 +78,8 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
 </section>
 
 <section class="step s2">
-  <div class="step-head"><div class="num">2</div><h2>Instala Linux dentro de Windows (WSL)</h2><span>15 min + reinicio</span></div>
-  <p>WSL es un "Linux" que vive dentro de Windows. Es donde trabajaremos con tu web.</p>
+  <div class="step-head"><div class="num">2</div><h2>Instala WSL en tu Windows</h2><span>15 min + reinicio</span></div>
+  <p>WSL es una herramienta gratuita de Microsoft que se instala dentro de tu Windows. Te da una ventana de comandos (la "terminal WSL") donde trabajaremos con tu web.</p>
   <ol>
     <li>Pulsa la tecla <b>Windows</b>, escribe <b>PowerShell</b>. Sobre "Windows PowerShell" haz <b>clic derecho → Ejecutar como administrador</b> → <b>Sí</b>.</li>
     <li>En la ventana azul, pega esto y pulsa Enter:</li>
@@ -87,12 +87,12 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <span class="cmd">wsl --install</span>
   <ol start="3">
     <li>Cuando termine, <b>reinicia</b> el ordenador.</li>
-    <li>Al volver, se abre sola una ventana negra llamada <b>Ubuntu</b> (si no, búscala en el menú de Windows). La primera vez tarda unos minutos.</li>
+    <li>Al volver, se abre sola una ventana negra: es la <b>terminal WSL</b>. Sigue siendo tu Windows; es solo una ventana más. Si no se abre, búscala en el menú Inicio: aparece con el nombre <b>Ubuntu</b> (es el nombre de la app de WSL). La primera vez tarda unos minutos.</li>
     <li>Te pide un <b>nombre de usuario</b>: escribe uno en minúsculas y sin espacios, por ejemplo <code>monica</code>.</li>
     <li>Te pide una <b>contraseña</b> dos veces. <b>Al escribirla no se ve nada: es normal.</b> Apúntala, la necesitarás a veces.</li>
   </ol>
   <div class="note">Si sale un error que menciona <b>"virtualization"</b> o <b>"virtualización"</b>, para aquí y mándame una captura. Se arregla en la llamada.</div>
-  <p><b>Desde aquí, todos los comandos se pegan en la ventana de Ubuntu.</b></p>
+  <p><b>Desde aquí, todos los comandos se pegan en la terminal WSL.</b></p>
 </section>
 
 <section class="step s3">
@@ -107,8 +107,8 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
 </section>
 
 <section class="step s4">
-  <div class="step-head"><div class="num">4</div><h2>Prepara Ubuntu</h2><span>5 min</span></div>
-  <p>Pega este recuadro. Te pedirá la contraseña de Ubuntu (la del paso 2):</p>
+  <div class="step-head"><div class="num">4</div><h2>Prepara la terminal WSL</h2><span>5 min</span></div>
+  <p>Pega este recuadro. Te pedirá la contraseña de WSL (la del paso 2):</p>
   <span class="cmd">sudo apt update &amp;&amp; sudo apt install -y git curl</span>
   <p>Ahora dile a Git quién eres. Pega estas dos líneas una a una:</p>
   <span class="cmd">git config --global user.name "Mónica Fiestas"</span>
@@ -141,8 +141,8 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <span class="cmd">curl https://mise.run | sh</span>
   <span class="cmd">echo 'eval "$(~/.local/bin/mise activate bash)"' &gt;&gt; ~/.bashrc</span>
   <ol>
-    <li><b>Cierra la ventana de Ubuntu y vuelve a abrirla.</b></li>
-    <li>Escribe <code>claude</code> y pulsa Enter. Elige iniciar sesión con tu <b>cuenta de Claude (Pro)</b>. Te dará un enlace: ábrelo en el navegador (con <code>Ctrl + clic</code> o copiándolo), autoriza y, si te da un código, pégalo en Ubuntu.</li>
+    <li><b>Cierra la terminal WSL y vuelve a abrirla.</b></li>
+    <li>Escribe <code>claude</code> y pulsa Enter. Elige iniciar sesión con tu <b>cuenta de Claude (Pro)</b>. Te dará un enlace: ábrelo en el navegador (con <code>Ctrl + clic</code> o copiándolo), autoriza y, si te da un código, pégalo en la terminal WSL.</li>
     <li>Cuando veas que Claude te saluda, sal escribiendo <code>/exit</code>.</li>
   </ol>
 </section>
@@ -163,7 +163,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <ul>
     <li>Claude Pro activo con info@cultunol.com</li>
     <li>ChatGPT Plus cancelado</li>
-    <li>Ubuntu (WSL) instalado y su contraseña apuntada</li>
+    <li>WSL instalado y su contraseña apuntada</li>
     <li>Cuenta de GitHub creada (y códigos de recuperación guardados)</li>
     <li>Clave SSH añadida y "successfully authenticated"</li>
     <li>Claude Code y mise instalados</li>

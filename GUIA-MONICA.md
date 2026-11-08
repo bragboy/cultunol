@@ -11,7 +11,7 @@ Coste final: **0 €** de hosting. Solo pagas lo que ya pagas (dominio y Google 
 1. En ChatGPT: **Configuración → Cuenta → Gestionar suscripción → Cancelar**. Seguirá activo hasta el final del mes pagado y después pasarás al plan gratuito (puedes seguir creando algunas imágenes al día).
 2. Entra en **claude.ai**, crea una cuenta con `info@cultunol.com` y suscríbete al plan **Pro**. Ese plan incluye **Claude Code**, la herramienta que usarás para cambiar tu web hablando en español.
 
-## Paso 2. Instala Linux dentro de Windows (WSL)
+## Paso 2. Instala WSL en tu Windows
 
 1. Pulsa la tecla Windows, escribe **PowerShell**, clic derecho → **Ejecutar como administrador**.
 2. Escribe y pulsa Enter:
@@ -19,9 +19,9 @@ Coste final: **0 €** de hosting. Solo pagas lo que ya pagas (dominio y Google 
    wsl --install
    ```
 3. **Reinicia** el ordenador.
-4. Se abrirá **Ubuntu** solo. Te pedirá un nombre de usuario (en minúsculas, por ejemplo `monica`) y una contraseña. **Apúntala**: la necesitarás a veces. Al escribirla no se ve nada; es normal.
+4. Se abrirá sola la **terminal WSL** (una ventana negra dentro de tu Windows; en el menú Inicio aparece con el nombre "Ubuntu", que es el nombre de la app de WSL). Te pedirá un nombre de usuario (en minúsculas, por ejemplo `monica`) y una contraseña. **Apúntala**: la necesitarás a veces. Al escribirla no se ve nada; es normal.
 
-A partir de aquí, todos los comandos se escriben en **Ubuntu** (búscalo en el menú de Windows).
+A partir de aquí, todos los comandos se escriben en la **terminal WSL**.
 
 ## Paso 3. Crea tu cuenta de GitHub
 
@@ -30,7 +30,7 @@ A partir de aquí, todos los comandos se escriben en **Ubuntu** (búscalo en el 
 
 ## Paso 4. Conecta tu ordenador con GitHub (clave SSH)
 
-En Ubuntu, copia estos comandos uno a uno (cambia el nombre si quieres):
+En la terminal WSL, copia estos comandos uno a uno (cambia el nombre si quieres):
 
 ```bash
 sudo apt update && sudo apt install -y git curl
@@ -57,7 +57,7 @@ Escribe `yes` si pregunta. Debe decir *"Hi … You've successfully authenticated
 
 1. Manda a Braga tu **nombre de usuario de GitHub**.
 2. Braga te **transfiere** el repositorio `cultunol`. Te llegará un correo de GitHub: ábrelo y **acepta** la transferencia.
-3. En Ubuntu:
+3. En la terminal WSL:
    ```bash
    cd ~
    git clone git@github.com:TU-USUARIO/cultunol.git
@@ -74,7 +74,7 @@ cd ~/cultunol && mise trust && mise install
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-Cierra y abre Ubuntu. Para ver tu web en tu ordenador:
+Cierra y vuelve a abrir la terminal WSL. Para ver tu web en tu ordenador:
 
 ```bash
 cd ~/cultunol
@@ -83,7 +83,7 @@ mise run dev
 
 Abre **http://localhost:1313** en tu navegador de Windows. Para pararlo: `Ctrl + C`.
 
-Para hablar con Claude Code, en otra ventana de Ubuntu:
+Para hablar con Claude Code, en otra ventana de la terminal WSL:
 
 ```bash
 cd ~/cultunol
