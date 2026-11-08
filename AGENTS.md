@@ -12,7 +12,9 @@ mise run dev       # http://127.0.0.1:1313
 mise run build     # production build into dist/
 ```
 
-Preview: https://cultunol.prueba.top (Caddy on deploy@francium.tech, files in /var/www/cultunol). `mise run deploy` builds with that baseURL and rsyncs.
+Production (after handover): GitHub Pages in Mónica's own GitHub account, published by `.github/workflows/pages.yml` on every push to `main`. Her setup steps, in Spanish, are in `GUIA-MONICA.md`.
+
+Temporary preview: https://cultunol.prueba.top on Braga's server; `mise run deploy` targets it and goes away after handover.
 
 ## Pages (same paths as the original site)
 
