@@ -12,9 +12,12 @@ mise run dev       # http://127.0.0.1:1313
 mise run build     # production build into dist/
 ```
 
-Production (after handover): GitHub Pages in Mónica's own GitHub account, published by `.github/workflows/pages.yml` on every push to `main`. Her setup steps, in Spanish, are in `GUIA-MONICA.md`.
+Publishing: **there is no deploy command.** Every push to `main` builds and publishes the site with GitHub Actions (`.github/workflows/pages.yml`) to GitHub Pages. Check a run with `gh run list` / `gh run watch`.
 
-Temporary preview: https://cultunol.prueba.top on Braga's server; `mise run deploy` targets it and goes away after handover.
+- Today: repo `github.com/bragboy/cultunol`, custom domain https://cultunol.prueba.top (Cloudflare CNAME to `bragboy.github.io`, DNS only, HTTPS enforced).
+- After handover: the repo is transferred to Mónica's GitHub account; she points `www.cultunol.com` at it from Namecheap (steps in `GUIA-MONICA.md`).
+- Her pre-call checklist (Spanish PDF): `handover/preparacion.html`, rendered to `handover/Cultunol-Preparacion.pdf` with headless Chrome.
+- The old DigitalOcean preview (francium.tech server) has been removed; nothing of this site runs there any more.
 
 ## Pages (same paths as the original site)
 
@@ -50,4 +53,4 @@ Temporary preview: https://cultunol.prueba.top on Braga's server; `mise run depl
 - Home motion: greeting bubble (¡Hola!/Hello!/¡Guau!), paw trail in the hero, "fin" struck through in the manifesto, Paraguay postmark on the newsletter postcard, ribbon nodes pulsing with the travelling light.
 - Prices: Spanish "325 €" style with non-breaking spaces, English "€325" style; amounts never change.
 - Portraits `monica.jpg`, `ana.jpeg`, `equipo-monica.jpeg` are AI-restored versions Braga approved (faces checked against originals). Stock images from her funnel pages (watermarked envelope, check mark) are replaced by drawn SVG animations.
-- Workflow: commit after each change, deploy with `mise run deploy`, show screenshots so Braga can give feedback.
+- Workflow: commit after each change, `git push` to publish, show screenshots so Braga can give feedback.

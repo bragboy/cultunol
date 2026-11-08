@@ -55,9 +55,9 @@ Escribe `yes` si pregunta. Debe decir *"Hi … You've successfully authenticated
 
 ## Paso 5. Recibe el código de tu web
 
-1. En GitHub: **+ (arriba a la derecha) → New repository**. Nombre: `cultunol`. Visibilidad: **Public** (necesario para el hosting gratis; todo lo que contiene ya es público en tu web). **No** marques ninguna casilla. Crear.
-2. **Settings → Collaborators → Add people** y añade a Braga. Avísale: él subirá el código.
-3. Cuando Braga te diga que ya está, en Ubuntu:
+1. Manda a Braga tu **nombre de usuario de GitHub**.
+2. Braga te **transfiere** el repositorio `cultunol`. Te llegará un correo de GitHub: ábrelo y **acepta** la transferencia.
+3. En Ubuntu:
    ```bash
    cd ~
    git clone git@github.com:TU-USUARIO/cultunol.git

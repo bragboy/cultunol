@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cultuñol · Preparación antes de la llamada</title>
+<style>
+@font-face { font-family: "Poppins"; font-weight: 400; src: url("../static/fonts/poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; src: url("../static/fonts/poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; src: url("../static/fonts/poppins-800.woff2") format("woff2"); }
+@page { size: A4; margin: 16mm 16mm 18mm; }
+:root { --blue: #587499; --blue-dk: #3c5576; --orange: #da984d; --orange-dk: #a9661f; --green: #58995c; --ink: #24190f; --ink-2: #5a4838; --cream: #fbf5ea; --line: #eadfcd; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 400 10.4pt/1.55 "Poppins", sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3 { margin: 0; letter-spacing: -.02em; line-height: 1.15; }
+p { margin: 0 0 6pt; }
+.cover { background: linear-gradient(150deg, #3c5576, #283a57); color: #fff; border-radius: 16pt; padding: 22pt 24pt; display: flex; gap: 18pt; align-items: center; }
+.cover img { width: 70pt; height: 70pt; border-radius: 50%; border: 3pt solid var(--orange); object-fit: cover; flex: none; }
+.cover .kicker { font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; color: #f2bd7f; font-weight: 600; margin-bottom: 4pt; }
+.cover h1 { font-size: 22pt; font-weight: 800; }
+.cover p { margin: 6pt 0 0; color: rgba(255,255,255,.85); }
+.intro { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8pt; margin: 12pt 0 4pt; }
+.pill { background: var(--cream); border-radius: 10pt; padding: 9pt 11pt; }
+.pill b { display: block; font-size: 8pt; text-transform: uppercase; letter-spacing: .14em; color: var(--blue); margin-bottom: 2pt; }
+.note { border-left: 3pt solid var(--orange); background: #fff6ea; padding: 8pt 11pt; border-radius: 0 8pt 8pt 0; margin: 8pt 0; }
+.note.green { border-color: var(--green); background: #eef6ee; }
+.note.blue { border-color: var(--blue); background: #eef2f8; }
+.step { margin-top: 14pt; }
+.step-head { break-after: avoid; }
+.cmd, .note, li, .step > p { break-inside: avoid; }
+.step-head { display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt; }
+.num { flex: none; width: 24pt; height: 24pt; border-radius: 50%; background: var(--c, var(--blue)); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: 11pt; }
+.step-head h2 { font-size: 14pt; font-weight: 800; }
+.step-head span { margin-left: auto; font-size: 8.5pt; color: var(--ink-2); white-space: nowrap; }
+ol { margin: 0 0 6pt; padding-left: 16pt; }
+li { margin: 2.5pt 0; }
+code, .cmd { font-family: Menlo, Consolas, monospace; font-variant-ligatures: none; letter-spacing: .02em; }
+code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; }
+.cmd { display: block; background: #1f2c42; color: #f2f5fa; border-radius: 8pt; padding: 8pt 11pt; font-size: 9pt; margin: 5pt 0 7pt; white-space: pre-wrap; word-break: break-all; }
+.cmd .c { color: #f2bd7f; }
+.check { break-inside: avoid; margin-top: 16pt; border: 1.5pt solid var(--green); border-radius: 12pt; padding: 12pt 14pt; }
+.check h2 { font-size: 14pt; font-weight: 800; color: #3c7240; margin-bottom: 6pt; }
+.check ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 16pt; }
+.check li { break-inside: avoid; padding-left: 16pt; position: relative; }
+.check li::before { content: ""; position: absolute; left: 0; top: 3pt; width: 9pt; height: 9pt; border: 1.3pt solid var(--green); border-radius: 2pt; }
+.foot { margin-top: 12pt; font-size: 8.5pt; color: var(--ink-2); text-align: center; }
+.s1 { --c: var(--orange); } .s2 { --c: var(--blue); } .s3 { --c: var(--green); } .s4 { --c: var(--orange); } .s5 { --c: var(--blue); } .s6 { --c: var(--green); } .s7 { --c: var(--orange); }
+.pb { break-before: page; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <img src="../assets/images/logo-face.png" alt="">
+  <div>
+    <div class="kicker">Cultuñol · Tu web, en tus manos</div>
+    <h1>Preparación antes de nuestra llamada</h1>
+    <p>Siete pasos para tener tu ordenador listo. Así en la llamada vamos directos a publicar tu web y a enseñarte a usar Claude.</p>
+  </div>
+</section>
+
+<div class="intro">
+  <div class="pill"><b>Tiempo</b>Unos 60 minutos, con calma</div>
+  <div class="pill"><b>Necesitas</b>Tu ThinkPad, internet y tu móvil</div>
+  <div class="pill"><b>Coste</b>Claude Pro (20 USD/mes) en lugar de ChatGPT Plus</div>
+</div>
+
+<div class="note blue"><b>Antes de empezar:</b> no tienes que entender nada de lo que escribes, solo copiarlo tal cual. Si un paso falla, haz una captura de pantalla del error y mándamela por WhatsApp. No pasa nada.</div>
+
+<div class="note"><b>Cómo copiar y pegar comandos:</b> selecciona el texto de los recuadros oscuros de este PDF y cópialo con <code>Ctrl + C</code>. En la ventana negra de Ubuntu se pega con <b>clic derecho</b> (o <code>Ctrl + Shift + V</code>). Después pulsa <b>Enter</b>. Copia un recuadro cada vez.</div>
+
+<section class="step s1">
+  <div class="step-head"><div class="num">1</div><h2>Cambia ChatGPT Plus por Claude Pro</h2><span>5 min</span></div>
+  <ol>
+    <li>En <b>chatgpt.com</b>: tu foto (abajo a la izquierda) → <b>Configuración</b> → <b>Cuenta</b> → <b>Gestionar</b> la suscripción → <b>Cancelar</b>. Sigue funcionando hasta el final del mes pagado y luego pasa al plan gratuito.</li>
+    <li>Entra en <b>claude.ai</b> → <b>Continuar con Google</b> con <code>info@cultunol.com</code>.</li>
+    <li>Pulsa <b>Upgrade</b> y elige el plan <b>Pro</b>. Este plan incluye <b>Claude Code</b>, que instalaremos en el paso 6.</li>
+  </ol>
+</section>
+
+<section class="step s2">
+  <div class="step-head"><div class="num">2</div><h2>Instala Linux dentro de Windows (WSL)</h2><span>15 min + reinicio</span></div>
+  <p>WSL es un "Linux" que vive dentro de Windows. Es donde trabajaremos con tu web.</p>
+  <ol>
+    <li>Pulsa la tecla <b>Windows</b>, escribe <b>PowerShell</b>. Sobre "Windows PowerShell" haz <b>clic derecho → Ejecutar como administrador</b> → <b>Sí</b>.</li>
+    <li>En la ventana azul, pega esto y pulsa Enter:</li>
+  </ol>
+  <span class="cmd">wsl --install</span>
+  <ol start="3">
+    <li>Cuando termine, <b>reinicia</b> el ordenador.</li>
+    <li>Al volver, se abre sola una ventana negra llamada <b>Ubuntu</b> (si no, búscala en el menú de Windows). La primera vez tarda unos minutos.</li>
+    <li>Te pide un <b>nombre de usuario</b>: escribe uno en minúsculas y sin espacios, por ejemplo <code>monica</code>.</li>
+    <li>Te pide una <b>contraseña</b> dos veces. <b>Al escribirla no se ve nada: es normal.</b> Apúntala, la necesitarás a veces.</li>
+  </ol>
+  <div class="note">Si sale un error que menciona <b>"virtualization"</b> o <b>"virtualización"</b>, para aquí y mándame una captura. Se arregla en la llamada.</div>
+  <p><b>Desde aquí, todos los comandos se pegan en la ventana de Ubuntu.</b></p>
+</section>
+
+<section class="step s3">
+  <div class="step-head"><div class="num">3</div><h2>Crea tu cuenta de GitHub</h2><span>5 min</span></div>
+  <p>GitHub es donde vivirá tu web. Publicará tu página gratis cada vez que hagas un cambio.</p>
+  <ol>
+    <li>Entra en <b>github.com/signup</b>.</li>
+    <li>Correo: <code>info@cultunol.com</code>. Crea una contraseña y un <b>nombre de usuario</b> corto (por ejemplo <code>cultunol</code> o <code>monicafiestas</code>).</li>
+    <li>Resuelve el pequeño puzzle, escribe el código que te llega por correo y elige el plan <b>Free</b> (gratis).</li>
+    <li>Si te pide activar la <b>verificación en dos pasos</b>, hazlo con la app <b>Google Authenticator</b> del móvil y <b>guarda los códigos de recuperación</b> en un lugar seguro.</li>
+  </ol>
+</section>
+
+<section class="step s4">
+  <div class="step-head"><div class="num">4</div><h2>Prepara Ubuntu</h2><span>5 min</span></div>
+  <p>Pega este recuadro. Te pedirá la contraseña de Ubuntu (la del paso 2):</p>
+  <span class="cmd">sudo apt update &amp;&amp; sudo apt install -y git curl</span>
+  <p>Ahora dile a Git quién eres. Pega estas dos líneas una a una:</p>
+  <span class="cmd">git config --global user.name "Mónica Fiestas"</span>
+  <span class="cmd">git config --global user.email "info@cultunol.com"</span>
+</section>
+
+<section class="step s5">
+  <div class="step-head"><div class="num">5</div><h2>Conecta tu ordenador con GitHub (clave SSH)</h2><span>10 min</span></div>
+  <p>Una clave SSH es como una llave de casa: permite que tu ordenador entre en GitHub sin escribir la contraseña cada vez.</p>
+  <ol>
+    <li>Crea la llave. Cuando haga preguntas, pulsa <b>Enter</b> sin escribir nada (tres veces):</li>
+  </ol>
+  <span class="cmd">ssh-keygen -t ed25519 -C "info@cultunol.com"</span>
+  <ol start="2">
+    <li>Copia la llave pública al portapapeles de Windows:</li>
+  </ol>
+  <span class="cmd">cat ~/.ssh/id_ed25519.pub | clip.exe</span>
+  <ol start="3">
+    <li>En GitHub: tu foto (arriba a la derecha) → <b>Settings</b> → <b>SSH and GPG keys</b> → <b>New SSH key</b>. En "Title" escribe <code>ThinkPad</code>, en "Key" pega con <code>Ctrl + V</code> y pulsa <b>Add SSH key</b>.</li>
+    <li>Comprueba que funciona. Si pregunta "Are you sure…?", escribe <code>yes</code> y Enter:</li>
+  </ol>
+  <span class="cmd">ssh -T git@github.com</span>
+  <div class="note green">Debe decir: <b>Hi tu-usuario! You've successfully authenticated…</b> Si lo ves, ¡perfecto!</div>
+</section>
+
+<section class="step s6">
+  <div class="step-head"><div class="num">6</div><h2>Instala Claude Code y mise</h2><span>10 min</span></div>
+  <p><b>Claude Code</b> es el asistente con el que cambiarás tu web hablando en español. <b>mise</b> instala automáticamente las herramientas que necesita tu web.</p>
+  <span class="cmd">curl -fsSL https://claude.ai/install.sh | bash</span>
+  <span class="cmd">curl https://mise.run | sh</span>
+  <span class="cmd">echo 'eval "$(~/.local/bin/mise activate bash)"' &gt;&gt; ~/.bashrc</span>
+  <ol>
+    <li><b>Cierra la ventana de Ubuntu y vuelve a abrirla.</b></li>
+    <li>Escribe <code>claude</code> y pulsa Enter. Elige iniciar sesión con tu <b>cuenta de Claude (Pro)</b>. Te dará un enlace: ábrelo en el navegador (con <code>Ctrl + clic</code> o copiándolo), autoriza y, si te da un código, pégalo en Ubuntu.</li>
+    <li>Cuando veas que Claude te saluda, sal escribiendo <code>/exit</code>.</li>
+  </ol>
+</section>
+
+<section class="step s7">
+  <div class="step-head"><div class="num">7</div><h2>Comprobación final y envíame esto</h2><span>2 min</span></div>
+  <p>Pega este recuadro entero:</p>
+  <span class="cmd">git --version; mise --version; claude --version; ssh -T git@github.com</span>
+  <p>Deben salir tres versiones y el mensaje "successfully authenticated". Después mándame por WhatsApp:</p>
+  <ol>
+    <li>Una <b>captura de pantalla</b> de esa ventana.</li>
+    <li>Tu <b>nombre de usuario de GitHub</b>. Con él te paso tu web a tu cuenta.</li>
+  </ol>
+</section>
+
+<section class="check">
+  <h2>Lista para la llamada</h2>
+  <ul>
+    <li>Claude Pro activo con info@cultunol.com</li>
+    <li>ChatGPT Plus cancelado</li>
+    <li>Ubuntu (WSL) instalado y su contraseña apuntada</li>
+    <li>Cuenta de GitHub creada (y códigos de recuperación guardados)</li>
+    <li>Clave SSH añadida y "successfully authenticated"</li>
+    <li>Claude Code y mise instalados</li>
+    <li>Captura y usuario de GitHub enviados a Braga</li>
+    <li>Tener a mano: acceso a <b>Namecheap</b> y a <b>Systeme</b></li>
+  </ul>
+</section>
+
+<div class="note blue" style="margin-top:12pt"><b>En la llamada haremos juntos:</b> pasar la web a tu GitHub, verla en tu ordenador, publicarla gratis, conectar los formularios con Systeme y apuntar tu dominio cultunol.com a la web nueva sin tocar tu correo.</div>
+
+<p class="foot">Cultuñol · Preparado por Braga · ¡Mucho ánimo, Mónica! 🐾</p>
+</body>
+</html>
