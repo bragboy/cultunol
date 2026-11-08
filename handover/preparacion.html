@@ -64,6 +64,8 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <div class="pill"><b>Coste</b>Claude Pro (20 USD/mes) en lugar de ChatGPT Plus</div>
 </div>
 
+<div class="note green"><b>Usa tu Gmail personal</b> para Claude y GitHub, no <code>info@cultunol.com</code>. Así estas cuentas son tuyas para siempre, pase lo que pase con el dominio o Google Workspace.</div>
+
 <div class="note blue"><b>Antes de empezar:</b> no tienes que entender nada de lo que escribes, solo copiarlo tal cual. Si un paso falla, haz una captura de pantalla del error y mándamela por WhatsApp. No pasa nada.</div>
 
 <div class="note"><b>Cómo copiar y pegar comandos:</b> selecciona el texto de los recuadros oscuros de este PDF y cópialo con <code>Ctrl + C</code>. En la terminal WSL (la ventana negra) se pega con <b>clic derecho</b> (o <code>Ctrl + Shift + V</code>). Después pulsa <b>Enter</b>. Copia un recuadro cada vez.</div>
@@ -72,7 +74,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <div class="step-head"><div class="num">1</div><h2>Cambia ChatGPT Plus por Claude Pro</h2><span>5 min</span></div>
   <ol>
     <li>En <b>chatgpt.com</b>: tu foto (abajo a la izquierda) → <b>Configuración</b> → <b>Cuenta</b> → <b>Gestionar</b> la suscripción → <b>Cancelar</b>. Sigue funcionando hasta el final del mes pagado y luego pasa al plan gratuito.</li>
-    <li>Entra en <b>claude.ai</b> → <b>Continuar con Google</b> con <code>info@cultunol.com</code>.</li>
+    <li>Entra en <b>claude.ai</b> → <b>Continuar con Google</b> con tu <b>Gmail personal</b> (no el correo de Cultuñol).</li>
     <li>Pulsa <b>Upgrade</b> y elige el plan <b>Pro</b>. Este plan incluye <b>Claude Code</b>, que instalaremos en el paso 6.</li>
   </ol>
 </section>
@@ -100,7 +102,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <p>GitHub es donde vivirá tu web. Publicará tu página gratis cada vez que hagas un cambio.</p>
   <ol>
     <li>Entra en <b>github.com/signup</b>.</li>
-    <li>Correo: <code>info@cultunol.com</code>. Crea una contraseña y un <b>nombre de usuario</b> corto (por ejemplo <code>cultunol</code> o <code>monicafiestas</code>).</li>
+    <li>Correo: tu <b>Gmail personal</b>. Crea una contraseña y un <b>nombre de usuario</b> corto (por ejemplo <code>monicafiestas</code>).</li>
     <li>Resuelve el pequeño puzzle, escribe el código que te llega por correo y elige el plan <b>Free</b> (gratis).</li>
     <li>Si te pide activar la <b>verificación en dos pasos</b>, hazlo con la app <b>Google Authenticator</b> del móvil y <b>guarda los códigos de recuperación</b> en un lugar seguro.</li>
   </ol>
@@ -110,9 +112,6 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <div class="step-head"><div class="num">4</div><h2>Prepara la terminal WSL</h2><span>5 min</span></div>
   <p>Pega este recuadro. Te pedirá la contraseña de WSL (la del paso 2):</p>
   <span class="cmd">sudo apt update &amp;&amp; sudo apt install -y git curl</span>
-  <p>Ahora dile a Git quién eres. Pega estas dos líneas una a una:</p>
-  <span class="cmd">git config --global user.name "Mónica Fiestas"</span>
-  <span class="cmd">git config --global user.email "info@cultunol.com"</span>
 </section>
 
 <section class="step s5">
@@ -121,7 +120,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
   <ol>
     <li>Crea la llave. Cuando haga preguntas, pulsa <b>Enter</b> sin escribir nada (tres veces):</li>
   </ol>
-  <span class="cmd">ssh-keygen -t ed25519 -C "info@cultunol.com"</span>
+  <span class="cmd">ssh-keygen -t ed25519 -C "thinkpad"</span>
   <ol start="2">
     <li>Copia la llave pública al portapapeles de Windows:</li>
   </ol>
@@ -161,7 +160,7 @@ code { background: #f3ece0; padding: 0 3pt; border-radius: 3pt; font-size: 9pt; 
 <section class="check">
   <h2>Lista para la llamada</h2>
   <ul>
-    <li>Claude Pro activo con info@cultunol.com</li>
+    <li>Claude Pro activo con tu Gmail personal</li>
     <li>ChatGPT Plus cancelado</li>
     <li>WSL instalado y su contraseña apuntada</li>
     <li>Cuenta de GitHub creada (y códigos de recuperación guardados)</li>

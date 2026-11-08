@@ -2,6 +2,8 @@
 
 Esta guía te lleva paso a paso para que la web de Cultuñol sea **tuya**: tu código, tu cuenta y tu publicación, sin pagar hosting y sin depender de nadie. Ve despacio, un paso cada día si quieres. Si algo falla, abre Claude Code y pregúntale: él puede leer esta guía.
 
+Usa tu **Gmail personal** para Claude y GitHub (no `info@cultunol.com`): así esas cuentas son tuyas aunque algún día cambie el dominio o Google Workspace. Para Git, usa la dirección privada que GitHub te da en **Settings → Emails → Keep my email addresses private**, para que tu correo no aparezca en el código público.
+
 Coste final: **0 €** de hosting. Solo pagas lo que ya pagas (dominio y Google Workspace) y Claude Pro (20 USD/mes) en lugar de ChatGPT Plus.
 
 ---
@@ -9,7 +11,7 @@ Coste final: **0 €** de hosting. Solo pagas lo que ya pagas (dominio y Google 
 ## Paso 1. Cambia ChatGPT Plus por Claude Pro
 
 1. En ChatGPT: **Configuración → Cuenta → Gestionar suscripción → Cancelar**. Seguirá activo hasta el final del mes pagado y después pasarás al plan gratuito (puedes seguir creando algunas imágenes al día).
-2. Entra en **claude.ai**, crea una cuenta con `info@cultunol.com` y suscríbete al plan **Pro**. Ese plan incluye **Claude Code**, la herramienta que usarás para cambiar tu web hablando en español.
+2. Entra en **claude.ai**, crea una cuenta con tu **Gmail personal** y suscríbete al plan **Pro**. Ese plan incluye **Claude Code**, la herramienta que usarás para cambiar tu web hablando en español.
 
 ## Paso 2. Instala WSL en tu Windows
 
@@ -25,7 +27,7 @@ A partir de aquí, todos los comandos se escriben en la **terminal WSL**.
 
 ## Paso 3. Crea tu cuenta de GitHub
 
-1. Entra en **github.com → Sign up** con `info@cultunol.com`. Elige un nombre de usuario corto, por ejemplo `cultunol`.
+1. Entra en **github.com → Sign up** con tu **Gmail personal**. Elige un nombre de usuario corto, por ejemplo `monicafiestas`.
 2. Activa la verificación en dos pasos cuando te lo pida.
 
 ## Paso 4. Conecta tu ordenador con GitHub (clave SSH)
@@ -35,8 +37,8 @@ En la terminal WSL, copia estos comandos uno a uno (cambia el nombre si quieres)
 ```bash
 sudo apt update && sudo apt install -y git curl
 git config --global user.name "Mónica Fiestas"
-git config --global user.email "info@cultunol.com"
-ssh-keygen -t ed25519 -C "info@cultunol.com"
+git config --global user.email "TU-ID+TU-USUARIO@users.noreply.github.com"
+ssh-keygen -t ed25519 -C "thinkpad"
 ```
 
 Pulsa **Enter** a todas las preguntas del último comando. Después:
