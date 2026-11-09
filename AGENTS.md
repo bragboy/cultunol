@@ -1,6 +1,6 @@
 # Cultuñol website redesign
 
-A redesign of www.cultunol.com (Mónica Fiestas' online Spanish academy), built as a gift. Static Hugo site, bilingual Spanish (default, at `/`) and English (at `/en/`). The live site runs on Systeme.io; this repo replaces the design only. URLs, links and copy match the original.
+A redesign of www.cultunol.com (Mónica Fiestas' online Spanish academy), built as a gift. Static Hugo site in three languages: Spanish (default, at `/`), English (at `/en/`) and German (at `/de/`). The live site runs on Systeme.io; this repo replaces the design only. URLs, links and copy match the original.
 
 ## Commands
 
@@ -21,11 +21,11 @@ Publishing: **there is no deploy command.** Every push to `main` builds and publ
 
 ## Pages (same paths as the original site)
 
-`/`, `/newsletter`, `/suscribirse`, `/bundle`, `/2suscripcionmochila`, `/suscrito`, `/cursos`, `/cursos-grupales`, `/cultunol_principiantes`, `/curso_cultunol`, `/equipo`, `/metodologia`, `/contactar`, `/legal-page`. Each has a `content/<name>.es.md` and `.en.md` twin; copy lives in front matter, and each page has its own template in `layouts/`.
+`/`, `/newsletter`, `/suscribirse`, `/bundle`, `/2suscripcionmochila`, `/suscrito`, `/cursos`, `/cursos-grupales`, `/cultunol_principiantes`, `/curso_cultunol`, `/equipo`, `/metodologia`, `/contactar`, `/legal-page`. Each has `content/<name>.es.md`, `.en.md` and `.de.md` versions; copy lives in front matter, and each page has its own template in `layouts/`.
 
 ## Content rules
 
-- Spanish copy is Mónica's, verbatim from the original site (`reference/crawl/content.txt`). English is a faithful translation. Never invent facts, prices, testimonials or stats.
+- Spanish copy is Mónica's, verbatim from the original site (`reference/crawl/content.txt`). English and German are faithful translations (German uses informal "du"; Spanish brand phrases like ¡Guau!, Método Guau and guay del Paraguay stay in Spanish). Never invent facts, prices, testimonials or stats.
 - The legal page is English on the original and stays verbatim in both languages (`assets/legal.md`).
 - No em-dashes or en-dashes in new text.
 - Check the original `sitemap.xml` as well as the menus: Systeme funnel pages are only listed there.
@@ -44,6 +44,7 @@ Publishing: **there is no deploy command.** Every push to `main` builds and publ
 - Dark rounded story panels with a glowing ribbon linking numbered nodes (`ribbon.html` partial), scroll-zoom of the board illustration, words that light up on scroll, slow "breathing" illustrations (`.alive`), photo-to-dog portrait flips, swipe rails on phones.
 - All art sits in fixed-ratio frames anchored to the top (`.frame`) so crops are consistent.
 - No inline scripts or style attributes; JS in `assets/js/main.js`. Respect `prefers-reduced-motion`.
+- German compounds are long: headings hyphenate under `:lang(de)`; prefer phrasings that break between words ("Online-Akademie für Spanisch").
 - Check every change at 1440px and 390px with Playwright: no horizontal scroll, no console errors.
 
 ## Decisions from Braga's feedback (keep these)

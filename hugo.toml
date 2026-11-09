@@ -59,6 +59,30 @@ defaultContentLanguageInSubdir = false
     pageRef = "/metodologia"
     weight = 40
 
+[languages.de]
+  label = "Deutsch"
+  locale = "de"
+  weight = 3
+  [languages.de.params]
+    short = "DE"
+    description = "Spanischkurse und Gruppen online für Erwachsene, die sprechen, andere Kulturen entdecken und dem Spanischen mehr Platz in ihrem Leben geben wollen."
+  [[languages.de.menus.main]]
+    name = "Newsletter"
+    pageRef = "/newsletter"
+    weight = 10
+  [[languages.de.menus.main]]
+    name = "Spanischkurse"
+    pageRef = "/cursos"
+    weight = 20
+  [[languages.de.menus.main]]
+    name = "Über uns"
+    pageRef = "/equipo"
+    weight = 30
+  [[languages.de.menus.main]]
+    name = "Methode"
+    pageRef = "/metodologia"
+    weight = 40
+
 [markup.goldmark.renderer]
   unsafe = true
 

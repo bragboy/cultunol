@@ -859,3 +859,9 @@ details.training li .icon { color: var(--leaf); width: 20px; height: 20px; margi
 }
 .courses-band .course-card:not(.course-star) { color: var(--ink); }
 .news-panel .news-copy > p:not(.eyebrow):not(.news-sub) { color: rgba(244, 247, 251, .88); }
+
+/* German: long compound words. Let headings hyphenate and keep the hero headline inside its column. */
+.hero-copy { min-width: 0; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .ribbon-title, :lang(de) .lit { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+:lang(de) .hero-title { font-size: clamp(40px, 6vw, 84px); }
+:lang(de) .page-hero h1 { font-size: clamp(38px, 5.6vw, 80px); }

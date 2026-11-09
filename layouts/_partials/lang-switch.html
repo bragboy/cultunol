@@ -1,9 +1,14 @@
-{{- $other := "" -}}
-{{- range .Translations }}{{ $other = . }}{{ end -}}
-{{- if not $other }}{{ range site.Home.Translations }}{{ $other = . }}{{ end }}{{ end -}}
-{{- $here := printf `<span class="lang-on" aria-current="true">%s</span>` site.Language.Params.short -}}
-{{- $there := "" -}}
-{{- with $other }}{{ $there = printf `<a href="%s" hreflang="%s" lang="%s" title="%s">%s</a>` .RelPermalink .Language.Lang .Language.Lang .Language.Label .Language.Params.short }}{{ end -}}
+{{- /* One pill per language, in language weight order. Links go to this page's translation, or that language's home page. */ -}}
+{{- $page := . -}}
 <div class="lang" role="group" aria-label="{{ T "switch_label" }}">
-  {{- if eq site.Language.Lang "es" }}{{ $here | safeHTML }}{{ $there | safeHTML }}{{ else }}{{ $there | safeHTML }}{{ $here | safeHTML }}{{ end -}}
+  {{- range site.Home.AllTranslations -}}
+    {{- $lang := .Language.Lang -}}
+    {{- if eq $lang site.Language.Lang -}}
+      <span class="lang-on" aria-current="true">{{ .Language.Params.short }}</span>
+    {{- else -}}
+      {{- $target := . -}}
+      {{- range $page.Translations }}{{ if eq .Language.Lang $lang }}{{ $target = . }}{{ end }}{{ end -}}
+      <a href="{{ $target.RelPermalink }}" hreflang="{{ $lang }}" lang="{{ $lang }}" title="{{ .Language.Label }}">{{ .Language.Params.short }}</a>
+    {{- end -}}
+  {{- end -}}
 </div>

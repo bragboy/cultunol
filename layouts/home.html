@@ -15,7 +15,7 @@
     </div>
     <figure class="hero-dog" aria-hidden="true">
       {{ partial "img.html" (dict "src" "equipo-intro.png" "alt" "" "eager" true "sizes" "(min-width: 900px) 420px, 70vw") }}
-      <span class="bubble"><span>¡Hola!</span><span>Hello!</span><span>¡Guau!</span></span>
+      <span class="bubble"><span>¡Hola!</span><span>{{ T "greet" }}</span><span>¡Guau!</span></span>
     </figure>
     <p class="eyebrow hero-goals-kicker">{{ $p.hero.goals_kicker }}</p>
     {{ partial "ribbon.html" (dict "id" "home" "nodes" $p.hero.goals) }}
